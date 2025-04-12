@@ -35,15 +35,15 @@ public class EleicaoController {
         return ResponseEntity.ok(eleicao);
     }
 
+    @GetMapping("/list")
+    public ResponseEntity<List<Eleicao>> getAll(){
+        return ResponseEntity.ok(eleicaoService.getAll());
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable String id) {
         eleicaoService.delete(id);
         return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/list")
-    public ResponseEntity<List<Eleicao>> getAll(){
-        return ResponseEntity.ok(eleicaoService.getAll());
     }
 
     @ExceptionHandler(EleicaoNotFoundException.class)
