@@ -13,7 +13,7 @@ import lombok.Setter;
 public class EleicaoDTO {
 
     private String titulo;
-
+    private String teste;
     private String descricao;
 
 
