@@ -1,5 +1,6 @@
 package com.trabalhosd.votacao.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,8 +22,8 @@ public class Candidato {
 
     private String lema;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "eleicao_id", nullable = false) // Cria a chave estrangeira no banco
     private Eleicao eleicao;
-
 }

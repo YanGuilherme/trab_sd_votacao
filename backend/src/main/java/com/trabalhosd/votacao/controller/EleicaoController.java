@@ -1,7 +1,6 @@
 package com.trabalhosd.votacao.controller;
 
 import com.trabalhosd.votacao.dto.EleicaoDTO;
-import com.trabalhosd.votacao.dto.EleicaoResponseDTO;
 import com.trabalhosd.votacao.entity.Eleicao;
 import com.trabalhosd.votacao.exception.EleicaoNotFoundException;
 import com.trabalhosd.votacao.service.EleicaoService;
@@ -23,10 +22,10 @@ public class EleicaoController {
     private EleicaoService eleicaoService;
 
     @PostMapping("/create")
-    public ResponseEntity<EleicaoResponseDTO> create(@RequestBody EleicaoDTO eleicaoDTO) {
+    public ResponseEntity<EleicaoDTO> create(@RequestBody EleicaoDTO eleicaoDTO) {
         Eleicao eleicao = eleicaoService.create(eleicaoDTO);
-        EleicaoResponseDTO eleicaoResponseDTO = new EleicaoResponseDTO(eleicao.getTitulo(), eleicao.getId());
-        return ResponseEntity.status(HttpStatus.CREATED).body(eleicaoResponseDTO);
+        EleicaoDTO eleicaoDto = new EleicaoDTO(eleicao.getId(), eleicao.getTitulo(), eleicao.getDescricao());
+        return ResponseEntity.status(HttpStatus.CREATED).body(eleicaoDto);
     }
 
     @GetMapping("/{id}")

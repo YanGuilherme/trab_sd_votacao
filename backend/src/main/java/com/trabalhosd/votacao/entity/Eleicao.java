@@ -1,5 +1,6 @@
 package com.trabalhosd.votacao.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class Eleicao {
 
     private String descricao;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "eleicao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Candidato> candidatos = new ArrayList<>();
 
