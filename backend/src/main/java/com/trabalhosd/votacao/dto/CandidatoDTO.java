@@ -20,4 +20,8 @@ public class CandidatoDTO {
     private String lema;
 
     private String eleicao_id;
+
+    private String partido;
+
+    private Integer quantidade_votos;
 }

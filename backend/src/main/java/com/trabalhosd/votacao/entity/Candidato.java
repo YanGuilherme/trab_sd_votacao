@@ -22,8 +22,13 @@ public class Candidato {
 
     private String lema;
 
+    private String partido;
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "eleicao_id", nullable = false) // Cria a chave estrangeira no banco
     private Eleicao eleicao;
+
+    private Integer quantidade_votos;
+
 }

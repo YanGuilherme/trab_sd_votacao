@@ -27,17 +27,10 @@ public class CandidatoService {
         Candidato candidato = candidatoRepository.findById(id)
                 .orElseThrow(CandidatoNotFoundException::new);
 
-        CandidatoDTO candidatoDTO = new CandidatoDTO();
-
-        candidatoDTO.setId(candidato.getId());
-        candidatoDTO.setNome(candidato.getNome());
-        candidatoDTO.setLema(candidato.getLema());
-        candidatoDTO.setEleicao_id(candidato.getEleicao().getId());
-
-        return candidatoDTO;
+        return convertToDTO(candidato);
     }
 
-    public Candidato create(CandidatoDTO candidatoDTO) {
+    public CandidatoDTO create(CandidatoDTO candidatoDTO) {
 
         Eleicao eleicao = eleicaoRepository.findById(candidatoDTO.getEleicao_id())
                 .orElseThrow(EleicaoNotFoundException::new);
@@ -47,12 +40,23 @@ public class CandidatoService {
         candidato.setNome(candidatoDTO.getNome());
         candidato.setLema(candidatoDTO.getLema());
         candidato.setEleicao(eleicao);
+        candidato.setPartido(candidatoDTO.getPartido());
 
-        return candidatoRepository.save(candidato);
+        candidatoRepository.save(candidato);
+        return convertToDTO(candidato);
+
 
     }
 
     public List<Candidato> listarCandidatos(){ return candidatoRepository.findAll();}
+
+    public List<CandidatoDTO> listarCandidatosPorEleicao(String eleicaoId) {
+        List<Candidato> candidatos = candidatoRepository.findByEleicaoId(eleicaoId);
+        return candidatos.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
 
     private CandidatoDTO convertToDTO(Candidato candidato) {
         CandidatoDTO dto = new CandidatoDTO();
@@ -60,13 +64,13 @@ public class CandidatoService {
         dto.setNome(candidato.getNome());
         dto.setLema(candidato.getLema());
         dto.setEleicao_id(candidato.getEleicao().getId());
+        dto.setPartido(candidato.getPartido());
+        dto.setQuantidade_votos(candidato.getQuantidade_votos());
         return dto;
     }
 
-    public List<CandidatoDTO> listarCandidatosPorEleicao(String eleicaoId) {
-        List<Candidato> candidatos = candidatoRepository.findByEleicaoId(eleicaoId);
-        return candidatos.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+
+    public void deleteCandidato(String id_delete){
+        candidatoRepository.deleteById(id_delete);
     }
 }

@@ -31,14 +31,7 @@ public class CandidatoController {
 
     @PostMapping("/create")
     public ResponseEntity<CandidatoDTO> create(@RequestBody CandidatoDTO candidatoDTO){
-        Candidato candidato = candidatoService.create(candidatoDTO);
-        CandidatoDTO createdCandidato = new CandidatoDTO();
-
-        createdCandidato.setId(candidato.getId());
-        createdCandidato.setNome(candidato.getNome());
-        createdCandidato.setLema(candidato.getLema());
-        createdCandidato.setEleicao_id(candidato.getEleicao().getId());
-
+        CandidatoDTO createdCandidato = candidatoService.create(candidatoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCandidato);
     }
 
@@ -47,14 +40,16 @@ public class CandidatoController {
         return candidatoService.listarCandidatos();
     }
 
+
     @GetMapping("/eleicao/{id_eleicao}")
     public List<CandidatoDTO> listarCandidatosPorEleicao(@PathVariable String id_eleicao){
         return candidatoService.listarCandidatosPorEleicao(id_eleicao);
     }
 
     @DeleteMapping("/delete/{id_delete}")
-    public void deletarCandidato(@PathVariable String id_delete){
-
+    public ResponseEntity<Void> deletarCandidato(@PathVariable String id_delete){
+        candidatoService.deleteCandidato(id_delete);
+        return ResponseEntity.noContent().build();
     }
 
     @ExceptionHandler(CandidatoNotFoundException.class)

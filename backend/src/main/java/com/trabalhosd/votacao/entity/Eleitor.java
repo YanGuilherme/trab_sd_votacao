@@ -31,4 +31,5 @@ public class Eleitor {
     @ManyToOne
     @JoinColumn(name = "candidato_id")
     private Candidato voto;
+
 }
