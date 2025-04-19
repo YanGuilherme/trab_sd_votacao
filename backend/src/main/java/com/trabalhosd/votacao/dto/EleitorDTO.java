@@ -1,32 +1,26 @@
-package com.trabalhosd.votacao.entity;
+package com.trabalhosd.votacao.dto;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Eleitor {
+public class EleitorDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String id;
 
     private String nome;
-
     private Integer idade;
-
     private String cidade;
-
     private String estado;
 
-    @ManyToOne
-    @JoinColumn(name = "candidato_id")
-    private Candidato voto;
-
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String candidatoId;
 }

@@ -24,9 +24,8 @@ public class CandidatoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CandidatoDTO> create(@PathVariable String id){
-        CandidatoDTO candidato = candidatoService.findById(id);
-
-        return ResponseEntity.ok(candidato);
+        Candidato candidato = candidatoService.findById(id);
+        return ResponseEntity.ok(candidatoService.convertToDTO(candidato));
     }
 
     @PostMapping("/create")

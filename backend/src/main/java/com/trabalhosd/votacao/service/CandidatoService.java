@@ -23,11 +23,15 @@ public class CandidatoService {
     private EleicaoRepository eleicaoRepository;
 
 
-    public CandidatoDTO findById(String id) {
+    public Candidato findById(String id) {
         Candidato candidato = candidatoRepository.findById(id)
                 .orElseThrow(CandidatoNotFoundException::new);
 
-        return convertToDTO(candidato);
+        return candidato;
+    }
+
+    public Candidato salvar(Candidato candidato){ // se deu erro de bd foi aq
+        return candidatoRepository.save(candidato);
     }
 
     public CandidatoDTO create(CandidatoDTO candidatoDTO) {
@@ -41,6 +45,7 @@ public class CandidatoService {
         candidato.setLema(candidatoDTO.getLema());
         candidato.setEleicao(eleicao);
         candidato.setPartido(candidatoDTO.getPartido());
+        candidato.setQuantidade_votos(0);
 
         candidatoRepository.save(candidato);
         return convertToDTO(candidato);
@@ -58,7 +63,7 @@ public class CandidatoService {
     }
 
 
-    private CandidatoDTO convertToDTO(Candidato candidato) {
+    public CandidatoDTO convertToDTO(Candidato candidato) {
         CandidatoDTO dto = new CandidatoDTO();
         dto.setId(candidato.getId());
         dto.setNome(candidato.getNome());
