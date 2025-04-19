@@ -1,0 +1,21 @@
+<main>
+  <p>select-locality-component works!</p>
+  <h3>Escolha sua localização:</h3>
+  <p>Selecione um estado</p>
+  <select (change)="onUfChange($event)" [(ngModel)]="ufSelecionada">
+    <option value="">Selecione um estado</option>
+    @for (uf of ufs; track uf.id) {
+    <option [value]="uf.id">{{ uf.nome }}</option>
+    }
+  </select>
+
+  <p>Selecione a cidade</p>
+  <select [disabled]="!ufSelecionada">
+    <option value="">Selecione a cidade</option>
+    @for (municipio of municipios; track municipio.id) {
+    <option [value]="municipio.id">{{ municipio.nome }}</option>
+    } @if (ufSelecionada && municipios.length === 0) {
+    <option disabled>Carregando municípios...</option>
+    }
+  </select>
+</main>
