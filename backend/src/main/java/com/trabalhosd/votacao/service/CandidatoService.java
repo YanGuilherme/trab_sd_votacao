@@ -10,6 +10,9 @@ import com.trabalhosd.votacao.repository.EleicaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CandidatoService {
 
@@ -20,7 +23,7 @@ public class CandidatoService {
     private EleicaoRepository eleicaoRepository;
 
 
-    public CandidatoDTO findById(String id){
+    public CandidatoDTO findById(String id) {
         Candidato candidato = candidatoRepository.findById(id)
                 .orElseThrow(CandidatoNotFoundException::new);
 
@@ -34,7 +37,7 @@ public class CandidatoService {
         return candidatoDTO;
     }
 
-    public Candidato create(CandidatoDTO candidatoDTO){
+    public Candidato create(CandidatoDTO candidatoDTO) {
 
         Eleicao eleicao = eleicaoRepository.findById(candidatoDTO.getEleicao_id())
                 .orElseThrow(EleicaoNotFoundException::new);
@@ -47,5 +50,23 @@ public class CandidatoService {
 
         return candidatoRepository.save(candidato);
 
+    }
+
+    public List<Candidato> listarCandidatos(){ return candidatoRepository.findAll();}
+
+    private CandidatoDTO convertToDTO(Candidato candidato) {
+        CandidatoDTO dto = new CandidatoDTO();
+        dto.setId(candidato.getId());
+        dto.setNome(candidato.getNome());
+        dto.setLema(candidato.getLema());
+        dto.setEleicao_id(candidato.getEleicao().getId());
+        return dto;
+    }
+
+    public List<CandidatoDTO> listarCandidatosPorEleicao(String eleicaoId) {
+        List<Candidato> candidatos = candidatoRepository.findByEleicaoId(eleicaoId);
+        return candidatos.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 }

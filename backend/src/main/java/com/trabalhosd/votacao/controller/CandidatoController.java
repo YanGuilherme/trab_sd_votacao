@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -39,7 +40,20 @@ public class CandidatoController {
         createdCandidato.setEleicao_id(candidato.getEleicao().getId());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdCandidato);
+    }
 
+    @GetMapping("/list")
+    public List<Candidato> listarCandidatos() {
+        return candidatoService.listarCandidatos();
+    }
+
+    @GetMapping("/eleicao/{id_eleicao}")
+    public List<CandidatoDTO> listarCandidatosPorEleicao(@PathVariable String id_eleicao){
+        return candidatoService.listarCandidatosPorEleicao(id_eleicao);
+    }
+
+    @DeleteMapping("/delete/{id_delete}")
+    public void deletarCandidato(@PathVariable String id_delete){
 
     }
 
