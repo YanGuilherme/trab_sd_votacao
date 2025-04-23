@@ -2,6 +2,7 @@ package com.trabalhosd.votacao.service;
 
 import com.trabalhosd.votacao.dto.EleitorDTO;
 import com.trabalhosd.votacao.entity.Candidato;
+import com.trabalhosd.votacao.entity.Eleicao;
 import com.trabalhosd.votacao.entity.Eleitor;
 import com.trabalhosd.votacao.repository.CandidatoRepository;
 import com.trabalhosd.votacao.repository.EleitorRepository;
@@ -20,10 +21,7 @@ public class EleitorService {
 
     public Eleitor buscarPorId(String id) {
         Optional<Eleitor> eleitorOptional = eleitorRepository.findById(id);
-        if (eleitorOptional.isPresent()) {
-            return eleitorOptional.get();
-        }
-        return null;
+        return eleitorOptional.orElse(null);
     }
 
     public EleitorDTO criar(EleitorDTO eleitorDTO) {
@@ -36,6 +34,32 @@ public class EleitorService {
         return eleitorRepository.save(eleitor);
     }
 
+    public boolean registrarVoto(String eleitorId, String candidatoId) {
+        Eleitor eleitor = buscarPorId(eleitorId);
+        Candidato candidato = candidatoRepository.findById(candidatoId).orElse(null);
+
+        if (eleitor == null || candidato == null) {
+            return false;
+        }
+
+        Eleicao eleicao = candidato.getEleicao();
+
+        // Verificar se já votou
+        if (eleitor.jaVotouNaEleicao(eleicao.getId())) {
+            return false;
+        }
+
+        // Atualizar eleitor
+        eleitor.adicionarEleicaoParticipada(eleicao);
+        eleitorRepository.save(eleitor);
+
+        // Atualizar candidato
+        candidato.setQuantidade_votos(candidato.getQuantidade_votos() + 1);
+        candidatoRepository.save(candidato);
+
+        return true;
+    }
+
     public EleitorDTO convertToDTO(Eleitor eleitor) {
         EleitorDTO dto = new EleitorDTO();
         dto.setId(eleitor.getId());
@@ -43,10 +67,6 @@ public class EleitorService {
         dto.setIdade(eleitor.getIdade());
         dto.setCidade(eleitor.getCidade());
         dto.setEstado(eleitor.getEstado());
-
-        if (eleitor.getVoto() != null) {
-            dto.setCandidatoId(eleitor.getVoto().getId());
-        }
 
         return dto;
     }
@@ -58,12 +78,7 @@ public class EleitorService {
         eleitor.setIdade(dto.getIdade());
         eleitor.setCidade(dto.getCidade());
         eleitor.setEstado(dto.getEstado());
-
-        if (dto.getCandidatoId() != null && !dto.getCandidatoId().isEmpty()) {
-            Optional<Candidato> candidatoOptional = candidatoRepository.findById(dto.getCandidatoId());
-            candidatoOptional.ifPresent(eleitor::setVoto);
-        }
-
+        
         return eleitor;
     }
 }

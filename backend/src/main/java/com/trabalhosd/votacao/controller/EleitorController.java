@@ -33,19 +33,28 @@ public class EleitorController {
 
     @PostMapping("/votar")
     public ResponseEntity<?> votar(@RequestBody VotarDTO votarDTO){
-        Eleitor eleitor = eleitorService.buscarPorId(votarDTO.getId_eleitor());
-        if(eleitor.getVoto() != null){
-            return ResponseEntity.badRequest().body(Collections.singletonMap("mensagem", "Seu voto já foi computado"));
+        String eleitorId = votarDTO.getId_eleitor();
+        String candidatoId = votarDTO.getId_candidato();
+
+        Eleitor eleitor = eleitorService.buscarPorId(eleitorId);
+        if (eleitor == null) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("mensagem", "Eleitor não encontrado"));
         }
 
-        Candidato candidato = candidatoService.findById(votarDTO.getCandidato_id());
-        candidato.setQuantidade_votos(candidato.getQuantidade_votos() + 1);
-        candidatoService.salvar(candidato);
+        Candidato candidato = candidatoService.findById(candidatoId);
+        if (candidato == null) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("mensagem", "Candidato não encontrado"));
+        }
 
-        Eleicao eleicao = eleicaoService.getById(candidato.getEleicao().getId());
-        eleitor.setVoto(candidato);
-        eleitorService.salvar(eleitor);
+        Eleicao eleicao = candidato.getEleicao();
 
+        if (eleitor.jaVotouNaEleicao(eleicao.getId())) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("mensagem", "Você já votou nesta eleição"));
+        }
+        boolean votoRegistrado = eleitorService.registrarVoto(eleitorId, candidatoId);
+        if (!votoRegistrado) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("mensagem", "Não foi possível registrar o voto"));
+        }
         ComprovanteVotacaoDTO comprovanteVotacaoDTO = new ComprovanteVotacaoDTO(candidato.getNome(), eleicao.getTitulo());
         return ResponseEntity.ok(comprovanteVotacaoDTO);
     }

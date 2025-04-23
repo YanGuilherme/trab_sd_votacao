@@ -14,5 +14,5 @@ public class VotarDTO {
 
     String id_eleitor;
 
-    String candidato_id;
+    String id_candidato;
 }
