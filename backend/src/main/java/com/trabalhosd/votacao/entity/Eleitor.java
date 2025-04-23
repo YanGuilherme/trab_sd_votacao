@@ -1,10 +1,15 @@
 package com.trabalhosd.votacao.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -25,8 +30,22 @@ public class Eleitor {
 
     private String estado;
 
-    @ManyToOne
-    @JoinColumn(name = "candidato_id")
-    private Candidato voto;
+    @JsonBackReference
+    @ManyToMany
+    @JoinTable(
+            name = "eleitor_eleicao",
+            joinColumns = @JoinColumn(name = "eleitor_id"),
+            inverseJoinColumns = @JoinColumn(name = "eleicao_id")
+    )
+    private Set<Eleicao> eleicoesParticipadas = new HashSet<>();
+
+    public boolean jaVotouNaEleicao(String eleicaoId) {
+        return eleicoesParticipadas.stream()
+                .anyMatch(eleicao -> eleicao.getId().equals(eleicaoId));
+    }
+
+    public void adicionarEleicaoParticipada(Eleicao eleicao) {
+        this.eleicoesParticipadas.add(eleicao);
+    }
 
 }
