@@ -11,9 +11,9 @@ import lombok.*;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false) // permitir espacos? caracteres especiais??
     private String nick;
 }

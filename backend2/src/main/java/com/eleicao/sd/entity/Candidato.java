@@ -7,17 +7,20 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Candidato {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String nome;
 
     private Long quantidadeVotos;
 
-    public Candidato() {
+    @PrePersist
+    private void onCreateQuantidadeVotos(){
         this.quantidadeVotos = 0L;
     }
+
 }

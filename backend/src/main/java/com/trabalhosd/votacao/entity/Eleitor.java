@@ -39,6 +39,8 @@ public class Eleitor {
     )
     private Set<Eleicao> eleicoesParticipadas = new HashSet<>();
 
+
+
     public boolean jaVotouNaEleicao(String eleicaoId) {
         return eleicoesParticipadas.stream()
                 .anyMatch(eleicao -> eleicao.getId().equals(eleicaoId));

@@ -18,11 +18,21 @@ public class EleicaoService {
     @Autowired
     private CandidatoRepository candidatoRepository;
 
-    public Usuario createUser(Usuario usuario){
+    public boolean existeUserByNick(String nick){
+        return usuarioRepository.existsByNick(nick);
+    }
+
+    public Usuario createUser(Usuario usuario) {
+        if (usuarioRepository.existsByNick(usuario.getNick())) {
+            throw new RuntimeException("nick ja existe");
+        }
         return usuarioRepository.save(usuario);
     }
 
     public Candidato createCandidato(Candidato candidato){
+        if (candidatoRepository.existsByNome(candidato.getNome())){
+            throw new RuntimeException("nome ja existe");
+        }
         return candidatoRepository.save(candidato);
     }
 
@@ -36,14 +46,25 @@ public class EleicaoService {
 
 
 
-    public String votar(Long id){
-        Candidato candidato = candidatoRepository.findById(id).orElse(null);
-        if(candidato != null){
-            candidato.setQuantidadeVotos(candidato.getQuantidadeVotos() + 1);
-            candidatoRepository.save(candidato);
-            return "Votou";
+    public String votar(String nick, Long id) {
+        if (!usuarioRepository.existsByNick(nick)) {
+            throw new RuntimeException("Usuário não encontrado");
         }
-        return "Não votou";
 
+        Candidato candidato = candidatoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Candidato não encontrado"));
+
+        candidato.setQuantidadeVotos(candidato.getQuantidadeVotos() + 1);
+        candidatoRepository.save(candidato);
+
+        return "Votou em " + candidato.getNome();
+    }
+
+    public List<Usuario> buscarUsers() {
+        return usuarioRepository.findAll();
+    }
+
+    public List<Candidato> buscarCandidatos(){
+        return candidatoRepository.findAll();
     }
 }
