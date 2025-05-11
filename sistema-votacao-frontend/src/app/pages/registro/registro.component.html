@@ -1,0 +1,8 @@
+<h2>Registro</h2>
+<form (ngSubmit)="registrar()">
+  <input type="text" placeholder="Nome" [(ngModel)]="nome" name="nome" required>
+  <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+  <input type="number" placeholder="Idade" [(ngModel)]="idade" name="idade" required>
+  <input type="text" placeholder="Cidade" [(ngModel)]="cidade" name="cidade" required>
+  <button type="submit">Registrar</button>
+</form>

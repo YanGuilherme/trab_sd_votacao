@@ -1,0 +1,7 @@
+<h2>Votação ID: {{ id }}</h2>
+<div *ngFor="let candidato of candidatos">
+  <h3>{{ candidato.nome }} ({{ candidato.numero }})</h3>
+  <p>{{ candidato.slogan }}</p>
+  <p>Votos: {{ candidato.votos }}</p>
+  <button (click)="votar(candidato.numero)" [disabled]="jaVotou">Votar</button>
+</div>
