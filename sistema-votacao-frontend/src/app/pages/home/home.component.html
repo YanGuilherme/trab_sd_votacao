@@ -1,6 +1,0 @@
-<h2>Pesquisar Votações</h2>
-<input type="text" placeholder="Pesquisar por cidade ou nome" [(ngModel)]="pesquisa">
-<div *ngFor="let votacao of votacoesFiltradas">
-  <h3>{{ votacao.nome }} - {{ votacao.cidade }}</h3>
-  <button (click)="acessarVotacao(votacao.id)">Ver Votação</button>
-</div>

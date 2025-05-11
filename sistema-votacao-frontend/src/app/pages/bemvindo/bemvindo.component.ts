@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './bemvindo.component.html',
-
-  
+  styleUrls: ['./bemvindo.component.css'], // Você pode adicionar múltiplos arquivos
 })
 export class BemvindoComponent {}
