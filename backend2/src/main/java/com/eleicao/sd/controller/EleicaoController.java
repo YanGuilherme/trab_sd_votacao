@@ -4,6 +4,7 @@ import com.eleicao.sd.entity.Candidato;
 import com.eleicao.sd.entity.Usuario;
 import com.eleicao.sd.service.EleicaoService;
 import com.eleicao.sd.utils.JwtUtil;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +68,7 @@ public class EleicaoController {
         return ResponseEntity.ok(list);
     }
 
+    @Transactional
     @PostMapping("/votar/{candidatoId}")
     public ResponseEntity<String> votar(@RequestHeader("Authorization") String token, @PathVariable Long candidatoId) {
         try {

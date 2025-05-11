@@ -18,6 +18,8 @@ public class Candidato {
 
     private Long quantidadeVotos;
 
+    private String foto;
+
     @PrePersist
     private void onCreateQuantidadeVotos(){
         this.quantidadeVotos = 0L;
