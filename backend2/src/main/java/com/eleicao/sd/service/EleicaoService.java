@@ -1,5 +1,7 @@
 package com.eleicao.sd.service;
 
+import com.eleicao.sd.dto.CandidatoDTO;
+import com.eleicao.sd.dto.UsuarioDTO;
 import com.eleicao.sd.entity.Candidato;
 import com.eleicao.sd.entity.Usuario;
 import com.eleicao.sd.repository.CandidatoRepository;
@@ -22,14 +24,20 @@ public class EleicaoService {
         return usuarioRepository.existsByNick(nick);
     }
 
-    public Usuario createUser(Usuario usuario) {
+    public Usuario createUser(UsuarioDTO usuarioDTO) {
+        Usuario usuario = new Usuario();
+        usuario.setNick(usuarioDTO.getNick());
+
         if (usuarioRepository.existsByNick(usuario.getNick())) {
             throw new RuntimeException("nick ja existe");
         }
         return usuarioRepository.save(usuario);
     }
 
-    public Candidato createCandidato(Candidato candidato){
+    public Candidato createCandidato(CandidatoDTO candidatoDTO){
+        Candidato candidato = new Candidato();
+        candidato.setNome(candidatoDTO.getNome());
+        candidato.setFoto(candidatoDTO.getFoto());
         if (candidatoRepository.existsByNome(candidato.getNome())){
             throw new RuntimeException("nome ja existe");
         }
