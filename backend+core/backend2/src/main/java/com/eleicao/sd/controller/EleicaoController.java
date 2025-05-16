@@ -1,5 +1,7 @@
 package com.eleicao.sd.controller;
 
+import com.eleicao.sd.dto.CandidatoDTO;
+import com.eleicao.sd.dto.UsuarioDTO;
 import com.eleicao.sd.entity.Candidato;
 import com.eleicao.sd.entity.Usuario;
 import com.eleicao.sd.service.EleicaoService;
@@ -29,7 +31,7 @@ public class EleicaoController {
 
 
     @PostMapping("/user")
-    public ResponseEntity<?> criarUser(@RequestBody Usuario user) {
+    public ResponseEntity<?> criarUser(@RequestBody UsuarioDTO user) {
         try {
             Usuario usuarioCriado = eleicaoService.createUser(user);
             String token = JwtUtil.generateToken(user.getNick());
@@ -50,7 +52,7 @@ public class EleicaoController {
     }
 
     @PostMapping("/candidato")
-    public ResponseEntity<?> criarCandidato(@RequestBody Candidato candidato){
+    public ResponseEntity<?> criarCandidato(@RequestBody CandidatoDTO candidato){
         try {
             Candidato candidatoCriado = eleicaoService.createCandidato(candidato);
             return ResponseEntity.status(201).body(candidatoCriado);
@@ -89,6 +91,13 @@ public class EleicaoController {
         List<Candidato> lista = eleicaoService.listarPorQuantidadeVotosDesc();
         return ResponseEntity.ok(lista);
     }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<Candidato>> listAll(){
+        List<Candidato> lista = eleicaoService.listarCandidatos();
+        return ResponseEntity.ok(lista);
+    }
+
 
 
 }

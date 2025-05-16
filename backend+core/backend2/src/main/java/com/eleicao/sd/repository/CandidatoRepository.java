@@ -10,6 +10,4 @@ import java.util.List;
 public interface CandidatoRepository extends JpaRepository<Candidato, Long> {
     List<Candidato> findAllByOrderByQuantidadeVotosDesc();
     boolean existsByNome(String nome);
-
-
 }

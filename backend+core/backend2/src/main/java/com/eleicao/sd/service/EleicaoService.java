@@ -1,9 +1,13 @@
 package com.eleicao.sd.service;
 
+import com.eleicao.sd.dto.CandidatoDTO;
+import com.eleicao.sd.dto.UsuarioDTO;
 import com.eleicao.sd.entity.Candidato;
 import com.eleicao.sd.entity.Usuario;
 import com.eleicao.sd.repository.CandidatoRepository;
 import com.eleicao.sd.repository.UsuarioRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +22,27 @@ public class EleicaoService {
     @Autowired
     private CandidatoRepository candidatoRepository;
 
+    private static final Logger logger = LogManager.getLogger(EleicaoService.class);
+
+
     public boolean existeUserByNick(String nick){
         return usuarioRepository.existsByNick(nick);
     }
 
-    public Usuario createUser(Usuario usuario) {
+    public Usuario createUser(UsuarioDTO usuarioDTO) {
+        Usuario usuario = new Usuario();
+        usuario.setNick(usuarioDTO.getNick());
+
         if (usuarioRepository.existsByNick(usuario.getNick())) {
             throw new RuntimeException("nick ja existe");
         }
         return usuarioRepository.save(usuario);
     }
 
-    public Candidato createCandidato(Candidato candidato){
+    public Candidato createCandidato(CandidatoDTO candidatoDTO){
+        Candidato candidato = new Candidato();
+        candidato.setNome(candidatoDTO.getNome());
+        candidato.setFoto(candidatoDTO.getFoto());
         if (candidatoRepository.existsByNome(candidato.getNome())){
             throw new RuntimeException("nome ja existe");
         }
@@ -67,4 +80,6 @@ public class EleicaoService {
     public List<Candidato> buscarCandidatos(){
         return candidatoRepository.findAll();
     }
+
+
 }
