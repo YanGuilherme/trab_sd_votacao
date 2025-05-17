@@ -22,7 +22,7 @@ public class VotoListener {
 
         Voto voto = new Voto();
         voto.setCandidato_id(votoDTO.getCandidato_id());
-        voto.setQuantidade_votos(votoDTO.getQuanditade_votos());
+        voto.setQuantidade_votos(votoDTO.getQuantidade_votos());
         votoRepository.save(voto);
     }
 }

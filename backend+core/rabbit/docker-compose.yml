@@ -6,6 +6,7 @@ services:
       - "5672:5672"     # Porta do protocolo AMQP
       - "15672:15672"   # Porta da interface web (management)
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
-    hostname: my-rabbit
+      RABBITMQ_DEFAULT_USER: yan
+      RABBITMQ_DEFAULT_PASS: yan
+    hostname: sd-rabbit
+    restart: unless-stopped
