@@ -2,26 +2,48 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { apiBase } from '../../service/api';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email = '';
-  senha = '';
+  loginNick = ''; // Nick for login
+  createNick = ''; // Nick for account creation
 
   constructor(private router: Router) {}
 
-  login(): void {
-    if (this.email === 'admin@admin.com' && this.senha === 'admin') {
-      // Vai para o painel de administrador
-      this.router.navigate(['/administrador']);
+  async login(): Promise<void> {
+    if (this.loginNick) {
+      try {
+        const response = await apiBase.post('/user/token', {
+          nick: this.loginNick,
+        });
+        localStorage.setItem('token', response.data);
+        this.router.navigate(['/list-candidate']);
+      } catch (error: any) {
+        alert(error?.response?.data || 'Erro ao fazer login.');
+      }
     } else {
-      // Usuário comum
-      this.router.navigate(['/home']);
+      alert('Por favor, insira um nick para entrar.');
+    }
+  }
+
+  async createAccount(): Promise<void> {
+    if (this.createNick) {
+      try {
+        const response = await apiBase.post('/user', { nick: this.createNick });
+        localStorage.setItem('token', response.data);
+        this.router.navigate(['/list-candidate']);
+      } catch (error: any) {
+        alert(error?.response?.data || 'Erro ao criar conta.');
+      }
+    } else {
+      alert('Por favor, crie um nick para continuar.');
     }
   }
 }

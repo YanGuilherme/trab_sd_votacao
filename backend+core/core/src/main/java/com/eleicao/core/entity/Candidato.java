@@ -1,7 +1,11 @@
-package com.eleicao.sd.entity;
+package com.eleicao.core.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @Getter
@@ -24,5 +28,4 @@ public class Candidato {
     private void onCreateQuantidadeVotos(){
         this.quantidadeVotos = 0L;
     }
-
 }

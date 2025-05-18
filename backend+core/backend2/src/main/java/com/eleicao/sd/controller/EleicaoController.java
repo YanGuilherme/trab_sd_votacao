@@ -1,9 +1,6 @@
 package com.eleicao.sd.controller;
 
 import com.eleicao.sd.dto.CandidatoDTO;
-import com.eleicao.sd.dto.UsuarioDTO;
-import com.eleicao.sd.entity.Candidato;
-import com.eleicao.sd.entity.Usuario;
 import com.eleicao.sd.service.EleicaoService;
 import com.eleicao.sd.utils.JwtUtil;
 import jakarta.transaction.Transactional;
@@ -11,71 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/eleicaoGP2")
+@RequestMapping("/eleicao-gp2")
 public class EleicaoController {
 
     @Autowired
     private EleicaoService eleicaoService;
 
-    @PostMapping("/token")
-    public ResponseEntity<String> gerarToken(@RequestBody Usuario user) {
-        if(eleicaoService.existeUserByNick(user.getNick())){
-            String token = JwtUtil.generateToken(user.getNick());
-            return ResponseEntity.ok(token);
-        }
-        return ResponseEntity.badRequest().body("user nao existe");
-    }
-
-
-    @PostMapping("/user")
-    public ResponseEntity<?> criarUser(@RequestBody UsuarioDTO user) {
-        try {
-            Usuario usuarioCriado = eleicaoService.createUser(user);
-            String token = JwtUtil.generateToken(user.getNick());
-            return ResponseEntity.status(201).body(token);
-        } catch (RuntimeException e) {
-            if (e.getMessage().equals("nick ja existe")) {
-                return ResponseEntity.status(400).body(e.getMessage());
-            }
-            return ResponseEntity.status(500).body("erro interno");
-        }
-    }
-
-
-    @GetMapping("/user")
-    public ResponseEntity<List<Usuario>> listarUsers(){
-        List<Usuario> list = eleicaoService.buscarUsers();
-        return ResponseEntity.ok(list);
-    }
-
-    @PostMapping("/candidato")
-    public ResponseEntity<?> criarCandidato(@RequestBody CandidatoDTO candidato){
-        try {
-            Candidato candidatoCriado = eleicaoService.createCandidato(candidato);
-            return ResponseEntity.status(201).body(candidatoCriado);
-        } catch (RuntimeException e) {
-            if (e.getMessage().equals("nome ja existe")) {
-                return ResponseEntity.status(400).body(e.getMessage());
-            }
-            return ResponseEntity.status(500).body("erro interno");
-        }
-    }
-
-    @GetMapping("/candidato")
-    public ResponseEntity<List<Candidato>> listarCandidatos(){
-        List<Candidato> list = eleicaoService.buscarCandidatos();
-        return ResponseEntity.ok(list);
-    }
-
     @Transactional
-    @PostMapping("/votar/{candidatoId}")
-    public ResponseEntity<String> votar(@RequestHeader("Authorization") String token, @PathVariable Long candidatoId) {
+    @PostMapping("/votar/{id_candidato}")
+    public ResponseEntity<String> votar(@RequestHeader("Authorization") String token, @PathVariable Long id_candidato) {
         try {
             String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
-            String resposta = eleicaoService.votar(nick, candidatoId);
+            String resposta = eleicaoService.votar(nick, id_candidato);
             return ResponseEntity.ok(resposta);
 
         } catch (RuntimeException e) {
@@ -85,19 +30,16 @@ public class EleicaoController {
         }
     }
 
-
-    @GetMapping("/listarCandidatosDesc")
-    public ResponseEntity<List<Candidato>> listarCandidatosDesc(){
-        List<Candidato> lista = eleicaoService.listarPorQuantidadeVotosDesc();
-        return ResponseEntity.ok(lista);
+    @PostMapping("/candidato")
+    public ResponseEntity<?> criarCandidato(@RequestBody CandidatoDTO candidato){
+        try {
+            eleicaoService.createCandidato(candidato);
+            return ResponseEntity.status(201).build();
+        } catch (RuntimeException e) {
+            if (e.getMessage().equals("nome ja existe")) {
+                return ResponseEntity.status(400).body(e.getMessage());
+            }
+            return ResponseEntity.status(500).body("erro interno");
+        }
     }
-
-    @GetMapping("/list")
-    public ResponseEntity<List<Candidato>> listAll(){
-        List<Candidato> lista = eleicaoService.listarCandidatos();
-        return ResponseEntity.ok(lista);
-    }
-
-
-
 }

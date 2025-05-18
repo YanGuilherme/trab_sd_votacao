@@ -1,0 +1,614 @@
+2025-05-18 10:54:39.232 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 18828 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 10:54:39.249 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 10:54:41.502 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 10:54:41.508 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 10:54:41.508 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 10:54:41.594 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 10:54:41.747 [main] ERROR com.zaxxer.hikari.HikariConfig - Failed to load driver class org.postgresql.Driver from HikariConfig class classloader jdk.internal.loader.ClassLoaders$AppClassLoader@4617c264
+2025-05-18 10:54:41.754 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-05-18 10:58:00.563 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 25232 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 10:58:00.576 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 10:58:03.009 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 10:58:03.105 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 10:58:03.152 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 10:58:03.678 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 10:58:04.875 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 3D000
+2025-05-18 10:58:04.876 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - FATAL: database "eleicao" does not exist
+2025-05-18 10:58:04.907 [main] WARN  org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.GenericJDBCException: unable to obtain isolated JDBC connection [FATAL: database "eleicao" does not exist] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) [spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) [spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) [spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) [spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) [spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) [spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) [spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) [spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) [spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) [spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) [spring-boot-3.4.5.jar:3.4.5]
+	at com.eleicao.sd.EleicaoApplication.main(EleicaoApplication.java:10) [classes/:?]
+Caused by: org.postgresql.util.PSQLException: FATAL: database "eleicao" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2845) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	... 35 more
+2025-05-18 10:58:04.949 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 10:58:04.964 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
+	Database driver: undefined/unknown
+	Database version: 12.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 10:58:05.867 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 10:58:05.908 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 10:58:06.939 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 3D000
+2025-05-18 10:58:06.941 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - FATAL: database "eleicao" does not exist
+2025-05-18 10:58:10.467 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 13176 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 10:58:10.476 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 10:58:12.216 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 10:58:12.220 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 10:58:12.221 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 10:58:12.303 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 10:58:12.729 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 10:58:12.774 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 10:58:12.809 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 10:58:13.188 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 10:58:13.495 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@652b3733
+2025-05-18 10:58:13.497 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 10:58:13.557 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 10:58:13.583 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 10:58:14.388 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 10:58:15.914 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 10:58:15.948 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 5.939 seconds (process running for 7.157)
+2025-05-18 11:09:23.545 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 11:09:23.813 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.UserService - Criou user: yan
+2025-05-18 12:08:17.420 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado: 1
+2025-05-18 12:08:17.714 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T12:08:17.423362}
+2025-05-18 12:08:17.721 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 12:16:42.970 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m27s985ms440µs900ns).
+2025-05-18 12:21:12.805 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 12:21:12.819 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-18 12:21:19.070 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 23592 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 12:21:19.083 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 12:21:21.102 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 12:21:21.105 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 12:21:21.106 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 12:21:21.183 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 12:21:21.504 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 12:21:21.564 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 12:21:21.603 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 12:21:22.084 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 12:21:22.283 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@377e573a
+2025-05-18 12:21:22.286 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 12:21:22.326 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 12:21:22.355 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 12:21:23.254 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 12:21:24.790 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 12:21:24.841 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 6.215 seconds (process running for 7.281)
+2025-05-18 12:21:29.525 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 12:21:55.183 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 12:21:55.296 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T12:21:55.183369}
+2025-05-18 12:21:55.300 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 12:22:02.278 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 12:22:02.278 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T12:22:02.278001800}
+2025-05-18 12:22:02.280 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 12:34:00.924 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 12:34:00.924 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T12:34:00.924183600}
+2025-05-18 12:34:00.924 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 12:34:17.983 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 12:34:17.984 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T12:34:17.983498500}
+2025-05-18 12:34:17.985 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 12:34:56.621 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 12:34:56.624 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T12:34:56.621605500}
+2025-05-18 12:34:56.624 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 12:47:20.070 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 12:47:20.078 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T12:47:20.076586700}
+2025-05-18 12:47:20.078 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 12:47:33.399 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 12:47:33.402 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T12:47:33.402374500}
+2025-05-18 12:47:33.404 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 12:48:59.689 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 12:48:59.691 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T12:48:59.690493900}
+2025-05-18 12:48:59.691 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 12:53:07.076 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 12:53:07.084 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T12:53:07.076599800}
+2025-05-18 12:53:07.084 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 13:10:18.778 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: yan
+2025-05-18 13:10:18.782 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='yan', foto='adasd'}
+2025-05-18 13:48:08.167 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 13:48:08.176 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-18 13:48:15.028 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 8056 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 13:48:15.042 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 13:48:17.315 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 13:48:17.321 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 13:48:17.322 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 13:48:17.473 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 13:48:17.800 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 13:48:17.860 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 13:48:17.898 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 13:48:18.407 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 13:48:18.655 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d626f2
+2025-05-18 13:48:18.658 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 13:48:18.721 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 13:48:18.763 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 13:48:19.695 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 13:48:21.175 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 13:48:21.222 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 6.807 seconds (process running for 8.004)
+2025-05-18 14:26:31.789 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 14:26:32.079 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: ada
+2025-05-18 14:26:32.286 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='ada', foto='dsda'}
+2025-05-18 16:21:51.380 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h41m31s740ms935µs100ns).
+2025-05-18 16:34:44.436 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 16:34:44.447 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-18 16:34:49.645 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 15748 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 16:34:49.663 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 16:34:52.705 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 16:34:52.712 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 16:34:52.713 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 16:34:52.838 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 16:34:53.328 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 16:34:53.411 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 16:34:53.473 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 16:34:54.059 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 16:34:54.376 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@31e7afde
+2025-05-18 16:34:54.379 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 16:34:54.439 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 16:34:54.475 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 16:34:55.962 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 16:34:58.415 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 16:34:58.476 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 9.605 seconds (process running for 11.356)
+2025-05-18 16:44:13.590 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 16:44:13.697 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: CANDIDATO1
+2025-05-18 16:44:13.779 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='CANDIDATO1', foto='DAssf'}
+2025-05-18 16:45:14.336 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: criar candidato
+2025-05-18 16:45:14.338 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='criar candidato', foto='dasdad'}
+2025-05-18 16:46:47.687 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: candidato
+2025-05-18 16:46:47.688 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='candidato', foto='dasd'}
+2025-05-18 16:55:39.645 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 16:55:39.651 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T16:55:39.646068}
+2025-05-18 16:55:39.652 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 16:55:42.948 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 16:55:42.950 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T16:55:42.949125500}
+2025-05-18 16:55:42.950 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 16:55:44.245 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 16:55:44.246 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T16:55:44.246835400}
+2025-05-18 16:55:44.247 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 16:55:45.165 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 16:55:45.167 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T16:55:45.166832600}
+2025-05-18 16:55:45.168 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 16:55:51.717 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:51.719 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:51.718529}
+2025-05-18 16:55:51.719 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:53.340 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:53.342 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:53.341364100}
+2025-05-18 16:55:53.343 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:53.978 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:53.980 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:53.979136700}
+2025-05-18 16:55:53.980 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:54.384 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:54.386 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:54.385484600}
+2025-05-18 16:55:54.386 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:56.343 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:56.344 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:56.344102500}
+2025-05-18 16:55:56.345 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:57.231 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:57.233 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:57.232467}
+2025-05-18 16:55:57.233 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:57.868 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:57.869 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:57.868852500}
+2025-05-18 16:55:57.871 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:58.600 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:58.602 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:58.601275400}
+2025-05-18 16:55:58.603 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:59.264 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:59.266 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:59.265222900}
+2025-05-18 16:55:59.266 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:55:59.857 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:55:59.859 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:55:59.858390300}
+2025-05-18 16:55:59.859 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:56:00.400 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:56:00.401 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:56:00.400178200}
+2025-05-18 16:56:00.402 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:56:01.149 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:56:01.150 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:56:01.150951600}
+2025-05-18 16:56:01.151 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:56:01.800 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:56:01.802 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:56:01.801615600}
+2025-05-18 16:56:01.803 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:56:02.362 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:56:02.364 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:56:02.363836600}
+2025-05-18 16:56:02.364 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:56:02.991 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 16:56:02.992 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T16:56:02.991420300}
+2025-05-18 16:56:02.993 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 16:59:48.150 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:48.152 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:48.151576}
+2025-05-18 16:59:48.153 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:49.197 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:49.199 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:49.198949500}
+2025-05-18 16:59:49.200 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:50.370 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:50.371 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:50.370179100}
+2025-05-18 16:59:50.372 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:52.922 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:52.923 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:52.923905900}
+2025-05-18 16:59:52.924 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:53.516 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:53.518 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:53.517965700}
+2025-05-18 16:59:53.518 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:54.122 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:54.124 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:54.123140200}
+2025-05-18 16:59:54.124 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:54.702 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:54.704 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:54.703379200}
+2025-05-18 16:59:54.705 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:55.607 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:55.608 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:55.607507200}
+2025-05-18 16:59:55.609 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:56.639 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 16:59:56.641 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T16:59:56.640747100}
+2025-05-18 16:59:56.641 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 16:59:59.866 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 16:59:59.867 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T16:59:59.867753700}
+2025-05-18 16:59:59.869 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 17:00:00.417 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 17:00:00.418 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T17:00:00.418457900}
+2025-05-18 17:00:00.419 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 17:00:03.762 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:03.764 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:03.763221600}
+2025-05-18 17:00:03.765 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:05.582 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:05.583 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:05.583436500}
+2025-05-18 17:00:05.584 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:08.024 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:08.026 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:08.024818100}
+2025-05-18 17:00:08.027 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:08.757 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:08.758 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:08.757384200}
+2025-05-18 17:00:08.759 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:09.348 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:09.350 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:09.349038700}
+2025-05-18 17:00:09.350 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:09.800 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:09.802 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:09.801188100}
+2025-05-18 17:00:09.803 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:10.671 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:10.672 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:10.671021400}
+2025-05-18 17:00:10.673 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:11.256 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:11.258 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:11.257559200}
+2025-05-18 17:00:11.258 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:11.837 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:11.839 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:11.839439400}
+2025-05-18 17:00:11.841 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:12.370 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:12.372 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:12.371274100}
+2025-05-18 17:00:12.372 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:13.584 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:13.585 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:13.584180500}
+2025-05-18 17:00:13.586 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:15.109 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:15.111 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:15.110340}
+2025-05-18 17:00:15.112 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:16.779 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:16.781 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:16.780619300}
+2025-05-18 17:00:16.782 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:17.668 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:17.669 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:17.669681}
+2025-05-18 17:00:17.670 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:18.236 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:18.238 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:18.237361300}
+2025-05-18 17:00:18.238 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:18.847 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:18.848 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:18.847236900}
+2025-05-18 17:00:18.848 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:19.752 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:19.753 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:19.752444}
+2025-05-18 17:00:19.753 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:20.196 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 17:00:20.200 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T17:00:20.198979200}
+2025-05-18 17:00:20.201 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 17:00:48.957 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: galao
+2025-05-18 17:00:48.959 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='galao', foto='champions'}
+2025-05-18 17:22:29.677 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: teste
+2025-05-18 17:22:29.680 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='teste', foto='https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.freepik.com%2Ffotos-vetores-gratis%2Favatar-png&psig=AOvVaw2Im7IAUWClhQRpJVk1B3g9&ust=1747686134735000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMDGwqvsrY0DFQAAAAAdAAAAABAE'}
+2025-05-18 17:45:32.415 [http-nio-8080-exec-6] ERROR com.eleicao.sd.service.UserService - Usuario ja existe: yan
+2025-05-18 17:51:39.306 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 17:51:39.313 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-18 17:51:44.005 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 26204 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 17:51:44.012 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 17:51:45.817 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 17:51:45.820 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 17:51:45.820 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 17:51:45.878 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 17:51:46.169 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 17:51:46.246 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 17:51:46.285 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 17:51:46.661 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 17:51:46.876 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@460f1cdb
+2025-05-18 17:51:46.882 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 17:51:46.919 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 17:51:46.941 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 17:51:47.635 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 17:51:48.719 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 17:51:48.745 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 5.144 seconds (process running for 6.064)
+2025-05-18 17:52:24.595 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 18:04:31.467 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 18:04:31.613 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T18:04:31.469419500}
+2025-05-18 18:04:31.614 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 18:04:32.792 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 1
+2025-05-18 18:04:32.794 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='1', valor=1, timestamp=2025-05-18T18:04:32.793740300}
+2025-05-18 18:04:32.794 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 1
+2025-05-18 18:04:39.850 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:39.851 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:39.850912700}
+2025-05-18 18:04:39.851 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:39.851 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:39.852 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:39.853 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:39.852911200}
+2025-05-18 18:04:39.854 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:39.855 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:39.852911200}
+2025-05-18 18:04:39.856 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:43.671 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:43.673 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:43.672397800}
+2025-05-18 18:04:43.674 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:46.810 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:46.813 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:46.812625}
+2025-05-18 18:04:46.813 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:47.497 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:47.499 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:47.498257800}
+2025-05-18 18:04:47.500 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:48.068 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:48.071 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:48.070304100}
+2025-05-18 18:04:48.072 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:48.597 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:48.599 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:48.598898700}
+2025-05-18 18:04:48.600 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:48.775 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:48.776 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:48.776492800}
+2025-05-18 18:04:48.777 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:48.947 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:48.949 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:48.948113600}
+2025-05-18 18:04:48.950 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:49.128 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:49.129 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:49.129269300}
+2025-05-18 18:04:49.130 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:49.349 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:49.351 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:49.350124400}
+2025-05-18 18:04:49.352 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:50.446 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:50.447 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:50.446918100}
+2025-05-18 18:04:50.448 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:51.359 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 18:04:51.362 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T18:04:51.361842400}
+2025-05-18 18:04:51.363 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 18:04:54.818 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:54.820 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:54.819335200}
+2025-05-18 18:04:54.821 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:54.955 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:54.958 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:54.956541200}
+2025-05-18 18:04:54.958 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:55.139 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:55.141 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:55.140797}
+2025-05-18 18:04:55.142 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:55.450 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:55.452 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:55.451989100}
+2025-05-18 18:04:55.453 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:55.606 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:55.608 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:55.607915100}
+2025-05-18 18:04:55.609 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:55.753 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:55.756 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:55.755988300}
+2025-05-18 18:04:55.757 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:55.912 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:55.915 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:55.914348100}
+2025-05-18 18:04:55.915 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:56.060 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:56.061 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:56.061479400}
+2025-05-18 18:04:56.062 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:56.219 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:56.221 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:56.220280900}
+2025-05-18 18:04:56.222 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:56.377 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:56.379 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:56.378681800}
+2025-05-18 18:04:56.380 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:56.520 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:56.522 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:56.521623700}
+2025-05-18 18:04:56.523 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:56.686 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:56.688 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:56.687044400}
+2025-05-18 18:04:56.689 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:56.838 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:56.839 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:56.839026700}
+2025-05-18 18:04:56.841 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:04:57.053 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 18:04:57.054 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T18:04:57.053168}
+2025-05-18 18:04:57.056 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 18:05:11.658 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 3
+2025-05-18 18:05:11.659 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='3', valor=1, timestamp=2025-05-18T18:05:11.659366400}
+2025-05-18 18:05:11.659 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 3
+2025-05-18 18:05:13.157 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 3
+2025-05-18 18:05:13.160 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='3', valor=1, timestamp=2025-05-18T18:05:13.159204200}
+2025-05-18 18:05:13.160 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 3
+2025-05-18 18:05:14.772 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 8
+2025-05-18 18:05:14.774 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='8', valor=1, timestamp=2025-05-18T18:05:14.773685500}
+2025-05-18 18:05:14.775 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 8
+2025-05-18 18:05:17.016 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 7
+2025-05-18 18:05:17.017 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='7', valor=1, timestamp=2025-05-18T18:05:17.016826600}
+2025-05-18 18:05:17.017 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 7
+2025-05-18 18:05:22.702 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 5
+2025-05-18 18:05:22.704 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='5', valor=1, timestamp=2025-05-18T18:05:22.703647500}
+2025-05-18 18:05:22.705 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 5
+2025-05-18 18:05:31.040 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 5
+2025-05-18 18:05:31.042 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='5', valor=1, timestamp=2025-05-18T18:05:31.041640900}
+2025-05-18 18:05:31.043 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 5
+2025-05-18 18:05:35.427 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 3
+2025-05-18 18:05:35.428 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='3', valor=1, timestamp=2025-05-18T18:05:35.427145300}
+2025-05-18 18:05:35.430 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 3
+2025-05-18 18:05:38.596 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 3
+2025-05-18 18:05:38.598 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='3', valor=1, timestamp=2025-05-18T18:05:38.596804200}
+2025-05-18 18:05:38.598 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 3
+2025-05-18 18:05:40.222 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 5
+2025-05-18 18:05:40.224 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='5', valor=1, timestamp=2025-05-18T18:05:40.223560900}
+2025-05-18 18:05:40.225 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 5
+2025-05-18 18:05:41.558 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 8
+2025-05-18 18:05:41.560 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='8', valor=1, timestamp=2025-05-18T18:05:41.559730200}
+2025-05-18 18:05:41.561 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 8
+2025-05-18 18:05:42.277 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 8
+2025-05-18 18:05:42.279 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='8', valor=1, timestamp=2025-05-18T18:05:42.278665600}
+2025-05-18 18:05:42.279 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 8
+2025-05-18 18:05:43.211 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 8
+2025-05-18 18:05:43.213 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='8', valor=1, timestamp=2025-05-18T18:05:43.212321600}
+2025-05-18 18:05:43.214 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 8
+2025-05-18 18:05:45.056 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 8
+2025-05-18 18:05:45.059 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='8', valor=1, timestamp=2025-05-18T18:05:45.057693100}
+2025-05-18 18:05:45.059 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 8
+2025-05-18 18:05:46.465 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 7
+2025-05-18 18:05:46.467 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='7', valor=1, timestamp=2025-05-18T18:05:46.466469100}
+2025-05-18 18:05:46.468 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 7
+2025-05-18 18:05:47.180 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 7
+2025-05-18 18:05:47.183 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='7', valor=1, timestamp=2025-05-18T18:05:47.181368300}
+2025-05-18 18:05:47.184 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 7
+2025-05-18 18:05:47.353 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 7
+2025-05-18 18:05:47.355 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='7', valor=1, timestamp=2025-05-18T18:05:47.354136400}
+2025-05-18 18:05:47.356 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 7
+2025-05-18 18:05:47.525 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 5
+2025-05-18 18:05:47.528 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='5', valor=1, timestamp=2025-05-18T18:05:47.527036}
+2025-05-18 18:05:47.528 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 5
+2025-05-18 18:05:47.745 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 5
+2025-05-18 18:05:47.747 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='5', valor=1, timestamp=2025-05-18T18:05:47.746047100}
+2025-05-18 18:05:47.747 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 5
+2025-05-18 18:05:50.265 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 7
+2025-05-18 18:05:50.267 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='7', valor=1, timestamp=2025-05-18T18:05:50.266900500}
+2025-05-18 18:05:50.268 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 7
+2025-05-18 18:05:51.360 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 3
+2025-05-18 18:05:51.362 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='3', valor=1, timestamp=2025-05-18T18:05:51.361274800}
+2025-05-18 18:05:51.362 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 3
+2025-05-18 18:05:52.172 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 3
+2025-05-18 18:05:52.173 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='3', valor=1, timestamp=2025-05-18T18:05:52.172829200}
+2025-05-18 18:05:52.174 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 3
+2025-05-18 18:11:08.190 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 18:11:08.196 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-18 18:11:12.634 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 23564 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 18:11:12.643 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 18:11:14.140 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 18:11:14.143 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 18:11:14.143 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 18:11:14.186 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 18:11:14.433 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 18:11:14.493 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 18:11:14.526 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 18:11:14.850 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 18:11:15.019 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@460f1cdb
+2025-05-18 18:11:15.020 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 18:11:15.045 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 18:11:15.066 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 18:11:15.707 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 18:11:16.933 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 18:11:16.971 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 4.706 seconds (process running for 5.756)
+2025-05-18 18:13:50.432 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 18:20:18.723 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: candidato hugo
+2025-05-18 18:20:18.796 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='candidato hugo', foto='adasasdsa'}
+2025-05-18 18:20:20.790 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 18:20:20.793 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T18:20:20.790930200}
+2025-05-18 18:20:20.793 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 18:20:22.509 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 18:20:22.510 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T18:20:22.510579900}
+2025-05-18 18:20:22.511 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 18:20:22.685 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 18:20:22.685 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T18:20:22.685557700}
+2025-05-18 18:20:22.686 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 18:20:23.040 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 18:20:23.041 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T18:20:23.041774100}
+2025-05-18 18:20:23.041 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 18:20:23.268 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 10
+2025-05-18 18:20:23.269 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='10', valor=1, timestamp=2025-05-18T18:20:23.268028100}
+2025-05-18 18:20:23.269 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
+2025-05-18 18:26:12.435 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 18:26:12.439 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

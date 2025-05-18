@@ -1,16 +1,18 @@
 package com.eleicao.sd.service;
 
+import com.eleicao.sd.component.CandidatoSender;
+import com.eleicao.sd.component.VotoSender;
 import com.eleicao.sd.dto.CandidatoDTO;
+import com.eleicao.sd.dto.VotoDTO;
 import com.eleicao.sd.dto.UsuarioDTO;
-import com.eleicao.sd.entity.Candidato;
 import com.eleicao.sd.entity.Usuario;
-import com.eleicao.sd.repository.CandidatoRepository;
 import com.eleicao.sd.repository.UsuarioRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -19,67 +21,41 @@ public class EleicaoService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private CandidatoRepository candidatoRepository;
-
     private static final Logger logger = LogManager.getLogger(EleicaoService.class);
 
+    private final VotoSender votoSender;
+    private final CandidatoSender candidatoSender;
 
-    public boolean existeUserByNick(String nick){
-        return usuarioRepository.existsByNick(nick);
-    }
-
-    public Usuario createUser(UsuarioDTO usuarioDTO) {
-        Usuario usuario = new Usuario();
-        usuario.setNick(usuarioDTO.getNick());
-
-        if (usuarioRepository.existsByNick(usuario.getNick())) {
-            throw new RuntimeException("nick ja existe");
-        }
-        return usuarioRepository.save(usuario);
-    }
-
-    public Candidato createCandidato(CandidatoDTO candidatoDTO){
-        Candidato candidato = new Candidato();
-        candidato.setNome(candidatoDTO.getNome());
-        candidato.setFoto(candidatoDTO.getFoto());
-        if (candidatoRepository.existsByNome(candidato.getNome())){
-            throw new RuntimeException("nome ja existe");
-        }
-        return candidatoRepository.save(candidato);
-    }
-
-    public List<Candidato> listarCandidatos(){
-        return candidatoRepository.findAll();
-    }
-
-    public List<Candidato> listarPorQuantidadeVotosDesc(){
-        return candidatoRepository.findAllByOrderByQuantidadeVotosDesc();
+    public EleicaoService(VotoSender votoSender, CandidatoSender candidatoSender) {
+        this.votoSender = votoSender;
+        this.candidatoSender = candidatoSender;
     }
 
 
+    public void createCandidato(CandidatoDTO candidatoDTO){
+        logger.info("Criou candidato: {}", candidatoDTO.getNome());
+        candidatoSender.criarCandidato(candidatoDTO);
+    }
 
-    public String votar(String nick, Long id) {
+    public String votar(String nick, Long id_candidato) {
         if (!usuarioRepository.existsByNick(nick)) {
+            logger.error("Erro ao votar - User nao encontrado: {}", nick);
             throw new RuntimeException("Usuário não encontrado");
         }
 
-        Candidato candidato = candidatoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Candidato não encontrado"));
 
-        candidato.setQuantidadeVotos(candidato.getQuantidadeVotos() + 1);
-        candidatoRepository.save(candidato);
+        logger.info("Candidato encontrado - id: {}", id_candidato);
 
-        return "Votou em " + candidato.getNome();
+        LocalDateTime agora = LocalDateTime.now();
+
+        VotoDTO voto = new VotoDTO();
+        voto.setType("eleicao-gp2");
+        voto.setObject(id_candidato.toString()); //passando o id do candidato
+        voto.setValor(1L);
+        voto.setTimestamp(agora);
+
+        votoSender.enviarVoto(voto);
+        logger.info("Voto para o candidato: {}", id_candidato.toString());
+        return "Votou em " + id_candidato.toString();
     }
-
-    public List<Usuario> buscarUsers() {
-        return usuarioRepository.findAll();
-    }
-
-    public List<Candidato> buscarCandidatos(){
-        return candidatoRepository.findAll();
-    }
-
-
 }

@@ -1,15 +1,12 @@
-package com.eleicao.sd.dto;
+package com.eleicao.core.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class CandidatoDTO {
-
 
     private String nome;
 

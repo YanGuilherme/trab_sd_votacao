@@ -1,28 +1,37 @@
 package com.eleicao.core.component;
 
+import com.eleicao.core.configuration.RabbitConfig;
 import com.eleicao.core.dto.VotoDTO;
-import com.eleicao.core.entity.Voto;
 import com.eleicao.core.repository.VotoRepository;
+import com.eleicao.core.service.VotoService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
 public class VotoListener {
+    private static final Logger logger = LogManager.getLogger(VotoListener.class);
 
-    private final VotoRepository votoRepository;
+    @Autowired
+    private VotoService votoService;
 
-    public VotoListener(VotoRepository votoRepository) {
-        this.votoRepository = votoRepository;
-    }
+    @Autowired
+    private CandidatoPublisher candidatoPublisher;
 
-    @RabbitListener(queues = "fila-votos")
+    @RabbitListener(queues = RabbitConfig.FILA_VOTOS)
     public void processarVoto(@Payload VotoDTO votoDTO) {
-        System.out.println("Voto recebido: " + votoDTO.toString());
-
-        Voto voto = new Voto();
-        voto.setCandidato_id(votoDTO.getCandidato_id());
-        voto.setQuantidade_votos(votoDTO.getQuantidade_votos());
-        votoRepository.save(voto);
+        try {
+            votoService.processarVoto(votoDTO);
+            candidatoPublisher.publicarListaCandidatos();
+            logger.info("Voto processado e lista atualizada: {}", votoDTO.toString());
+        } catch (Exception e) {
+            logger.error("Erro ao processar voto: {}", votoDTO.toString(), e);
+            throw e;
+        }
     }
+
 }
