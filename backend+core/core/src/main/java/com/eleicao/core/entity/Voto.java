@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -16,7 +18,11 @@ public class Voto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long candidato_id;
+    private String type;
 
-    private Long quantidade_votos;
+    private String object;
+
+    private Long valor;
+
+    private LocalDateTime timestamp;
 }

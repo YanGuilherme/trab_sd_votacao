@@ -2,19 +2,25 @@ package com.eleicao.core.dto;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class VotoDTO {
-    Long candidato_id;
-    Long quantidade_votos;
+    private String type;
+    private String object;
+    private Long valor;
+    private LocalDateTime timestamp;
 
     @Override
     public String toString() {
         return "VotoDTO{" +
-                "candidato_id=" + candidato_id +
-                ", quanditade_votos=" + quantidade_votos +
+                "type='" + type + '\'' +
+                ", object='" + object + '\'' +
+                ", valor=" + valor +
+                ", timestamp=" + timestamp +
                 '}';
     }
 }

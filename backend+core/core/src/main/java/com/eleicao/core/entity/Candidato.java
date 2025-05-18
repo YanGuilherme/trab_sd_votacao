@@ -1,14 +1,19 @@
-package com.eleicao.sd.entity;
+package com.eleicao.core.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Candidato {
+public class Candidato implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,5 +29,4 @@ public class Candidato {
     private void onCreateQuantidadeVotos(){
         this.quantidadeVotos = 0L;
     }
-
 }

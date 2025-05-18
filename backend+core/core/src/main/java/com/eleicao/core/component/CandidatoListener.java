@@ -1,8 +1,9 @@
 package com.eleicao.core.component;
 
 import com.eleicao.core.configuration.RabbitConfig;
+import com.eleicao.core.dto.CandidatoDTO;
 import com.eleicao.core.dto.VotoDTO;
-import com.eleicao.core.repository.VotoRepository;
+import com.eleicao.core.service.CandidatoService;
 import com.eleicao.core.service.VotoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,16 +13,16 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VotoListener {
-    private static final Logger logger = LogManager.getLogger(VotoListener.class);
+public class CandidatoListener {
+    private static final Logger logger = LogManager.getLogger(CandidatoListener.class);
 
     @Autowired
-    private VotoService votoService;
+    private CandidatoService candidatoService;
 
-    @RabbitListener(queues = RabbitConfig.FILA_VOTOS)
-    public void processarVoto(@Payload VotoDTO votoDTO) {
-        logger.info("Voto recebido: {}", votoDTO.toString());
-        votoService.salvarVoto(votoDTO);
-        votoService.processarVoto(votoDTO);
+    @RabbitListener(queues = RabbitConfig.FILA_CANDIDATOS)
+    public void criarCandidato(@Payload CandidatoDTO candidatoDTO) {
+        candidatoService.criarCandidato(candidatoDTO);
+        logger.info("Candidato criado: {}", candidatoDTO.toString());
+
     }
 }
