@@ -1,6 +1,12 @@
 <div class="container">
   <h2>Bem vindo</h2>
-  <button class="ver-resultados">Ver resultados</button>
+  <h4>
+    Logado como: {{ returnNick() }} <button (click)="logout()">Sair</button>
+  </h4>
+
+  <button class="add-candidato" (click)="abrirModal()">
+    Adicionar candidato
+  </button>
 
   <h3 class="titulo">Candidatos/Filmes:</h3>
 
@@ -12,13 +18,9 @@
         [foto]="candidato.foto"
         [quantidadeVotos]="candidato.quantidadeVotos"
       />
-      <button class="votar" (click)="votar(candidato)">Votar</button>
+      <button class="votar" (click)="votar(candidato.id)">Votar</button>
     </div>
     }
-    <div class="card adicionar" (click)="abrirModal()">
-      <div class="nome">Adicionar</div>
-      <div class="icone">＋</div>
-    </div>
   </div>
 </div>
 

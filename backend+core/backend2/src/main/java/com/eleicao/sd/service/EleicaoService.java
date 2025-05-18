@@ -37,25 +37,25 @@ public class EleicaoService {
         candidatoSender.criarCandidato(candidatoDTO);
     }
 
-    public String votar(String nick, String nome_candidato) {
+    public String votar(String nick, Long id_candidato) {
         if (!usuarioRepository.existsByNick(nick)) {
             logger.error("Erro ao votar - User nao encontrado: {}", nick);
             throw new RuntimeException("Usuário não encontrado");
         }
 
 
-        logger.info("Candidato encontrado: {}", nome_candidato);
+        logger.info("Candidato encontrado - id: {}", id_candidato);
 
         LocalDateTime agora = LocalDateTime.now();
 
         VotoDTO voto = new VotoDTO();
         voto.setType("eleicao-gp2");
-        voto.setObject(nome_candidato);
+        voto.setObject(id_candidato.toString()); //passando o id do candidato
         voto.setValor(1L);
         voto.setTimestamp(agora);
 
         votoSender.enviarVoto(voto);
-        logger.info("Voto para o candidato: {}", nome_candidato);
-        return "Votou em " + nome_candidato;
+        logger.info("Voto para o candidato: {}", id_candidato.toString());
+        return "Votou em " + id_candidato.toString();
     }
 }

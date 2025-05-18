@@ -16,11 +16,11 @@ public class EleicaoController {
     private EleicaoService eleicaoService;
 
     @Transactional
-    @PostMapping("/votar/{nome_candidato}")
-    public ResponseEntity<String> votar(@RequestHeader("Authorization") String token, @PathVariable String nome_candidato) {
+    @PostMapping("/votar/{id_candidato}")
+    public ResponseEntity<String> votar(@RequestHeader("Authorization") String token, @PathVariable Long id_candidato) {
         try {
             String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
-            String resposta = eleicaoService.votar(nick, nome_candidato);
+            String resposta = eleicaoService.votar(nick, id_candidato);
             return ResponseEntity.ok(resposta);
 
         } catch (RuntimeException e) {

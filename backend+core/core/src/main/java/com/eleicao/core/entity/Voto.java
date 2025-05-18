@@ -25,4 +25,14 @@ public class Voto {
     private Long valor;
 
     private LocalDateTime timestamp;
+
+    @Override
+    public String toString() {
+        return "Voto{" +
+                ", type='" + type + '\'' +
+                ", object='" + object + '\'' +
+                ", valor=" + valor +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }

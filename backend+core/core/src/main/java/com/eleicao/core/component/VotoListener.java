@@ -6,6 +6,7 @@ import com.eleicao.core.repository.VotoRepository;
 import com.eleicao.core.service.VotoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -18,10 +19,19 @@ public class VotoListener {
     @Autowired
     private VotoService votoService;
 
+    @Autowired
+    private CandidatoPublisher candidatoPublisher;
+
     @RabbitListener(queues = RabbitConfig.FILA_VOTOS)
     public void processarVoto(@Payload VotoDTO votoDTO) {
-        logger.info("Voto recebido: {}", votoDTO.toString());
-        votoService.salvarVoto(votoDTO);
-        votoService.processarVoto(votoDTO);
+        try {
+            votoService.processarVoto(votoDTO);
+            candidatoPublisher.publicarListaCandidatos();
+            logger.info("Voto processado e lista atualizada: {}", votoDTO.toString());
+        } catch (Exception e) {
+            logger.error("Erro ao processar voto: {}", votoDTO.toString(), e);
+            throw e;
+        }
     }
+
 }

@@ -19,10 +19,22 @@ public class CandidatoListener {
     @Autowired
     private CandidatoService candidatoService;
 
+    @Autowired
+    private CandidatoPublisher candidatoPublisher;
+
     @RabbitListener(queues = RabbitConfig.FILA_CANDIDATOS)
     public void criarCandidato(@Payload CandidatoDTO candidatoDTO) {
-        candidatoService.criarCandidato(candidatoDTO);
-        logger.info("Candidato criado: {}", candidatoDTO.toString());
+        try {
+            // Armazena o candidato no banco
+            candidatoService.criarCandidato(candidatoDTO);
 
+            // Publica nova lista após adicionar novo candidato
+            candidatoPublisher.publicarListaCandidatos();
+
+            logger.info("Candidato criado e lista publicada: {}", candidatoDTO.toString());
+        } catch (Exception e) {
+            logger.error("Erro ao processar candidato: {}", candidatoDTO.toString(), e);
+            throw e; // Re-lança para que o RabbitMQ possa tratar
+        }
     }
 }

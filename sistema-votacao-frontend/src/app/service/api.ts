@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'http://localhost:8080/eleicaoGP2', // ajuste aqui se necessário
+export const apiCore = axios.create({
+  baseURL: 'http://localhost:9090',
 });
 
-export default api;
+export const apiBase = axios.create({
+  baseURL: 'http://localhost:8080',
+});
