@@ -963,3 +963,324 @@ Caused by: org.postgresql.util.PSQLException: FATAL: database "eleicao" does not
 2025-05-18 18:20:23.269 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 10
 2025-05-18 18:26:12.435 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-05-18 18:26:12.439 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-18 19:39:18.237 [main] INFO  com.eleicao.sd.EleicaoApplication - Starting EleicaoApplication using Java 21.0.6 with PID 24616 (C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2\target\classes started by yguilherme in C:\Users\yguilherme\Documents\youknow\nova_pasta\trab_sd_votacao\backend+core\backend2)
+2025-05-18 19:39:18.259 [main] INFO  com.eleicao.sd.EleicaoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-18 19:39:22.456 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-18 19:39:22.463 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-18 19:39:22.465 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-18 19:39:22.613 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-18 19:39:23.174 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-18 19:39:23.285 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 19:39:23.380 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-18 19:39:24.082 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-18 19:39:24.473 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@308a9264
+2025-05-18 19:39:24.475 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-18 19:39:24.562 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 19:39:24.607 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-18 19:39:25.760 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 19:39:27.556 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-18 19:39:27.604 [main] INFO  com.eleicao.sd.EleicaoApplication - Started EleicaoApplication in 10.111 seconds (process running for 11.703)
+2025-05-18 19:42:11.719 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-18 19:48:56.080 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.UserService - Criou user: hulk do galo
+2025-05-18 19:49:18.283 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 19:49:18.462 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T19:49:18.284857900}
+2025-05-18 19:49:18.464 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 19:49:19.867 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 6
+2025-05-18 19:49:19.870 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='6', valor=1, timestamp=2025-05-18T19:49:19.869429400}
+2025-05-18 19:49:19.871 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 6
+2025-05-18 19:49:21.481 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 19:49:21.484 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T19:49:21.482661900}
+2025-05-18 19:49:21.485 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 19:49:22.519 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 2
+2025-05-18 19:49:22.520 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='2', valor=1, timestamp=2025-05-18T19:49:22.520420400}
+2025-05-18 19:49:22.521 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 2
+2025-05-18 19:49:24.371 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 4
+2025-05-18 19:49:24.373 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='4', valor=1, timestamp=2025-05-18T19:49:24.372386400}
+2025-05-18 19:49:24.374 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 4
+2025-05-18 19:53:08.401 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: cara de oculos
+2025-05-18 19:53:08.407 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='cara de oculos', foto='https://unsplash.com/pt-br/fotografias/esquiador-com-capacete-e-oculos-de-protecao-desvia-o-olhar-Tn9BuH_vvuc'}
+2025-05-18 19:56:13.232 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: teste foto
+2025-05-18 19:56:13.236 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='teste foto', foto='https://picsum.photos/200/400'}
+2025-05-18 19:57:06.610 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 19:57:06.613 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T19:57:06.611882300}
+2025-05-18 19:57:06.613 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:07:22.467 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: pedrao
+2025-05-18 20:07:22.470 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='pedrao', foto='https://picsum.photos/200/'}
+2025-05-18 20:07:42.130 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: nao sei
+2025-05-18 20:07:42.131 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='nao sei', foto='https://picsum.photos/id/123/200/'}
+2025-05-18 20:25:19.746 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:19.750 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:19.748852}
+2025-05-18 20:25:19.751 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:21.015 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:21.019 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:21.017020500}
+2025-05-18 20:25:21.021 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:23.538 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:23.544 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:23.542215200}
+2025-05-18 20:25:23.547 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:30.365 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:30.365 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:30.365736500}
+2025-05-18 20:25:30.365 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:31.990 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:31.990 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:31.990555800}
+2025-05-18 20:25:31.990 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:33.405 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:33.405 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:33.405779700}
+2025-05-18 20:25:33.412 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:34.263 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:34.268 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:34.268643600}
+2025-05-18 20:25:34.271 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:34.421 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:34.424 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:34.424389700}
+2025-05-18 20:25:34.426 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:34.559 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:34.567 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:34.559636200}
+2025-05-18 20:25:34.567 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:34.691 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:34.691 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:34.691009600}
+2025-05-18 20:25:34.691 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:34.859 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:34.867 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:34.859220200}
+2025-05-18 20:25:34.867 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:35.038 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:35.045 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:35.038286100}
+2025-05-18 20:25:35.045 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:35.198 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:35.198 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:35.198572300}
+2025-05-18 20:25:35.198 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:35.345 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:35.345 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:35.345395800}
+2025-05-18 20:25:35.345 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:35.499 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:35.499 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:35.499292900}
+2025-05-18 20:25:35.504 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:35.643 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:35.654 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:35.652437600}
+2025-05-18 20:25:35.655 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:35.797 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:35.800 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:35.798860400}
+2025-05-18 20:25:35.803 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:36.111 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 20:25:36.115 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T20:25:36.113548100}
+2025-05-18 20:25:36.117 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 20:25:36.270 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 20:25:36.272 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T20:25:36.270036800}
+2025-05-18 20:25:36.276 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 20:25:36.582 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:36.586 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:36.586394400}
+2025-05-18 20:25:36.586 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:36.743 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:36.746 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:36.743015200}
+2025-05-18 20:25:36.747 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:37.111 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 20:25:37.119 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T20:25:37.119823}
+2025-05-18 20:25:37.119 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 20:25:38.263 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 9
+2025-05-18 20:25:38.265 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='9', valor=1, timestamp=2025-05-18T20:25:38.263660500}
+2025-05-18 20:25:38.267 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 9
+2025-05-18 20:25:39.484 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:25:39.498 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:25:39.494482500}
+2025-05-18 20:25:39.498 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:25:40.834 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:40.843 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:40.843045400}
+2025-05-18 20:25:40.843 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:41.039 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:41.048 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:41.039770400}
+2025-05-18 20:25:41.072 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:42.027 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:42.031 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:42.029484600}
+2025-05-18 20:25:42.031 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:42.198 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:42.205 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:42.204180600}
+2025-05-18 20:25:42.207 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:42.409 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:42.429 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:42.429437900}
+2025-05-18 20:25:42.429 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:44.171 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:44.171 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:44.171237200}
+2025-05-18 20:25:44.171 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:45.981 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:45.982 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:45.982275400}
+2025-05-18 20:25:45.982 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:46.849 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:46.853 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:46.851562500}
+2025-05-18 20:25:46.853 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:47.050 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 13
+2025-05-18 20:25:47.062 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='13', valor=1, timestamp=2025-05-18T20:25:47.059152400}
+2025-05-18 20:25:47.065 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 13
+2025-05-18 20:25:48.596 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:48.598 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:48.598230500}
+2025-05-18 20:25:48.599 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:48.822 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:48.824 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:48.822385400}
+2025-05-18 20:25:48.827 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:50.239 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:50.241 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:50.241936800}
+2025-05-18 20:25:50.241 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:50.958 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:50.958 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:50.958317600}
+2025-05-18 20:25:50.958 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:52.070 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:52.073 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:52.071905700}
+2025-05-18 20:25:52.075 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:53.362 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:53.367 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:53.362501500}
+2025-05-18 20:25:53.369 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:54.832 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:54.832 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:54.832586400}
+2025-05-18 20:25:54.832 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:54.976 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:54.978 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:54.978184100}
+2025-05-18 20:25:54.978 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:25:55.194 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:25:55.197 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:25:55.195071700}
+2025-05-18 20:25:55.199 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:29:17.030 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:29:17.033 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:29:17.032373400}
+2025-05-18 20:29:17.035 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:29:18.753 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:29:18.756 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:29:18.755173400}
+2025-05-18 20:29:18.757 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:29:19.673 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:19.675 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:19.674122}
+2025-05-18 20:29:19.676 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:21.226 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:21.229 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:21.227171600}
+2025-05-18 20:29:21.229 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:21.397 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:21.399 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:21.398711}
+2025-05-18 20:29:21.401 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:21.557 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:21.560 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:21.558421900}
+2025-05-18 20:29:21.561 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:21.710 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:21.713 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:21.711281700}
+2025-05-18 20:29:21.714 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:21.856 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:21.858 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:21.856026700}
+2025-05-18 20:29:21.858 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.003 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.005 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.005526100}
+2025-05-18 20:29:22.006 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.135 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.136 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.135456900}
+2025-05-18 20:29:22.137 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.263 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.264 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.264882200}
+2025-05-18 20:29:22.265 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.445 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.447 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.446513800}
+2025-05-18 20:29:22.448 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.578 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.579 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.578413700}
+2025-05-18 20:29:22.580 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.730 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.732 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.731058500}
+2025-05-18 20:29:22.732 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:22.895 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:22.897 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:22.896929100}
+2025-05-18 20:29:22.897 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:23.062 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:23.064 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:23.063626900}
+2025-05-18 20:29:23.065 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:23.212 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:23.214 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:23.213724}
+2025-05-18 20:29:23.215 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:23.388 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:23.390 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:23.389093500}
+2025-05-18 20:29:23.391 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:23.536 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:23.538 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:23.537715800}
+2025-05-18 20:29:23.539 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:23.701 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:23.703 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:23.702030}
+2025-05-18 20:29:23.703 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:23.859 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:23.861 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:23.860248500}
+2025-05-18 20:29:23.861 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.018 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.020 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.020323900}
+2025-05-18 20:29:24.021 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.172 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.173 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.172984800}
+2025-05-18 20:29:24.174 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.341 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.343 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.342532700}
+2025-05-18 20:29:24.343 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.487 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.489 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.488079800}
+2025-05-18 20:29:24.489 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.653 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.654 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.653113300}
+2025-05-18 20:29:24.655 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.817 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.819 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.818663600}
+2025-05-18 20:29:24.820 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:24.945 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:24.947 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:24.946560300}
+2025-05-18 20:29:24.949 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:25.299 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:25.301 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:25.300564800}
+2025-05-18 20:29:25.302 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:25.442 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:25.444 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:25.443424500}
+2025-05-18 20:29:25.445 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:25.615 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:25.618 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:25.616876100}
+2025-05-18 20:29:25.619 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:25.776 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:25.778 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:25.776055100}
+2025-05-18 20:29:25.778 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:25.930 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:25.931 [http-nio-8080-exec-10] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:25.930127700}
+2025-05-18 20:29:25.932 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:26.113 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:26.115 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:26.114133}
+2025-05-18 20:29:26.116 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:26.282 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:26.283 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:26.282832}
+2025-05-18 20:29:26.284 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:26.428 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:26.431 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:26.429586600}
+2025-05-18 20:29:26.432 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:26.582 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 14
+2025-05-18 20:29:26.583 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='14', valor=1, timestamp=2025-05-18T20:29:26.583377700}
+2025-05-18 20:29:26.584 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 14
+2025-05-18 20:29:48.972 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Criou candidato: outro candidato
+2025-05-18 20:29:48.972 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.CandidatoSender - Candidato criado: CandidatoDTO{nome='outro candidato', foto='https://picsum.photos/200/'}
+2025-05-18 20:32:25.769 [http-nio-8080-exec-10] INFO  com.eleicao.sd.service.UserService - Criou user: dikosta
+2025-05-18 20:32:41.016 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:41.019 [http-nio-8080-exec-1] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:41.018473700}
+2025-05-18 20:32:41.020 [http-nio-8080-exec-1] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:41.170 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:41.173 [http-nio-8080-exec-2] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:41.172638800}
+2025-05-18 20:32:41.174 [http-nio-8080-exec-2] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:41.339 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:41.340 [http-nio-8080-exec-3] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:41.339925200}
+2025-05-18 20:32:41.341 [http-nio-8080-exec-3] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:42.820 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:42.822 [http-nio-8080-exec-4] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:42.820343}
+2025-05-18 20:32:42.822 [http-nio-8080-exec-4] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:42.964 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:42.964 [http-nio-8080-exec-5] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:42.964837200}
+2025-05-18 20:32:42.964 [http-nio-8080-exec-5] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:43.131 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:43.133 [http-nio-8080-exec-6] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:43.133676900}
+2025-05-18 20:32:43.136 [http-nio-8080-exec-6] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:43.269 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:43.275 [http-nio-8080-exec-7] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:43.275253900}
+2025-05-18 20:32:43.275 [http-nio-8080-exec-7] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:43.452 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:43.452 [http-nio-8080-exec-8] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:43.452771800}
+2025-05-18 20:32:43.452 [http-nio-8080-exec-8] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:43.671 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Candidato encontrado - id: 12
+2025-05-18 20:32:43.676 [http-nio-8080-exec-9] INFO  com.eleicao.sd.component.VotoSender - Voto enviado: VotoDTO{type='eleicao-gp2', object='12', valor=1, timestamp=2025-05-18T20:32:43.671232300}
+2025-05-18 20:32:43.676 [http-nio-8080-exec-9] INFO  com.eleicao.sd.service.EleicaoService - Voto para o candidato: 12
+2025-05-18 20:32:52.128 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-18 20:32:52.139 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

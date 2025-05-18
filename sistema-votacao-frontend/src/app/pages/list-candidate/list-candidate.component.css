@@ -8,15 +8,12 @@
 }
 
 .titulo {
-  color: #004d00;
   font-size: 1.8rem;
-  text-align: center;
-  margin: 2rem 0;
   font-weight: bold;
 }
 
 .votar {
-  background-color: #f12c2c;
+  background-color: #1cb919;
   color: white;
   border: none;
   padding: 8px 20px;
@@ -89,7 +86,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 h2 {
@@ -109,4 +106,26 @@ h2 {
     display: block;
     margin: 1rem auto;
   }
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  text-align: right;
+}
+
+.button-logout {
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ededed;
 }

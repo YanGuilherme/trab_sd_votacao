@@ -1,12 +1,16 @@
 <div class="container">
-  <h2>Bem vindo</h2>
-  <h4>
-    Logado como: {{ returnNick() }} <button (click)="logout()">Sair</button>
-  </h4>
+  <div class="top-bar">
+    <h2>Bem vindo</h2>
+    <div class="user-info">
+      <h4>Logado como: {{ returnNick() }}</h4>
+      <button class="button-logout" (click)="logout()">Sair</button>
+    </div>
+  </div>
 
   <button class="add-candidato" (click)="abrirModal()">
     Adicionar candidato
   </button>
+  <p>Link para foto aleatória: https://picsum.photos/200/</p>
 
   <h3 class="titulo">Candidatos/Filmes:</h3>
 
