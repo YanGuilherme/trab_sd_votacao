@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { BemvindoComponent } from './pages/bemvindo/bemvindo.component';
+import { HomeComponent } from './pages/home/home.component';
 import { ListCandidateComponent } from './pages/list-candidate/list-candidate.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
@@ -7,7 +7,7 @@ import { AuthGuard } from './auth.guard';
 export const routes: Routes = [
   { path: '', redirectTo: 'bemvindo', pathMatch: 'full' }, // Redirecionar vazio para "inicio"
 
-  { path: 'bemvindo', component: BemvindoComponent },
+  { path: 'bemvindo', component: HomeComponent },
   {
     path: 'list-candidate',
     component: ListCandidateComponent,

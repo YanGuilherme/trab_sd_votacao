@@ -1,6 +1,6 @@
 <div class="container">
   <div class="top-bar">
-    <h2>Bem vindo</h2>
+    <h2>Bem-vindo</h2>
     <div class="user-info">
       <h4>Logado como: {{ returnNick() }}</h4>
       <button class="button-logout" (click)="logout()">Sair</button>
@@ -12,7 +12,7 @@
   </button>
   <p>Link para foto aleatória: https://picsum.photos/200/</p>
 
-  <h3 class="titulo">Candidatos/Filmes:</h3>
+  <h3 class="titulo">Candidatos:</h3>
 
   <div class="lista-candidatos">
     @for (candidato of candidatos; track candidato.nome) {
@@ -32,6 +32,7 @@
 @if(mostrarModal){
 <div class="modal-backdrop">
   <div class="modal">
+    <button class="fechar-btn" (click)="fecharModal()">×</button>
     <label>Nome</label>
     <input [(ngModel)]="novoCandidato.nome" type="text" />
 

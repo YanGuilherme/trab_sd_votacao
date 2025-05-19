@@ -10,10 +10,11 @@
 .titulo {
   font-size: 1.8rem;
   font-weight: bold;
+  color: #313e9e;
 }
 
 .votar {
-  background-color: #1cb919;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 8px 20px;
@@ -26,14 +27,21 @@
   border-radius: 3px;
 }
 
+.votar:hover {
+  background-color: #0056b3;
+}
+
 .add-candidato {
   font-size: large;
   border: none;
-  background-color: green;
+  background-color: #007bff;
   padding: 10px 10px;
   color: white;
-  border: 1px solid black;
   border-radius: 5px;
+}
+
+.add-candidato:hover {
+  background-color: #0056b3;
 }
 
 .modal-backdrop {
@@ -56,6 +64,7 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -71,8 +80,27 @@
   border-radius: 4px;
 }
 
+.fechar-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.fechar-btn:hover {
+  color: red;
+}
+
+.criar:hover {
+  background-color: #0056b3;
+}
+
 .criar {
-  background: #4caf50;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 12px;
@@ -82,7 +110,6 @@
   margin-top: 10px;
 }
 
-/* Estilos adicionais baseados na imagem */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -95,7 +122,6 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Ajustes para garantir que o layout seja responsivo */
 @media (max-width: 768px) {
   .lista-candidatos {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -118,14 +144,22 @@ h2 {
   text-align: right;
 }
 
+.user-info h4 {
+  margin: 0 4px 0 0;
+}
+
 .button-logout {
   border: none;
   background-color: white;
   text-decoration: underline;
 }
 
+.button-logout:hover {
+  color: red;
+}
+
 .card {
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: #ededed;
+  border-radius: 6px;
+  background-color: #e3e3e3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

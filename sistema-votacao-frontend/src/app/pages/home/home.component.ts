@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-bemvindo',
+  selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './bemvindo.component.html',
-  styleUrls: ['./bemvindo.component.css'], // Você pode adicionar múltiplos arquivos
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
-export class BemvindoComponent {}
+export class HomeComponent {}

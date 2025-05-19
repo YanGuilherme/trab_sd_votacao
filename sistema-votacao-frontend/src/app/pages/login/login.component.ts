@@ -12,8 +12,8 @@ import { apiBase } from '../../service/api';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  loginNick = ''; // Nick for login
-  createNick = ''; // Nick for account creation
+  loginNick = '';
+  createNick = '';
 
   constructor(private router: Router) {}
 

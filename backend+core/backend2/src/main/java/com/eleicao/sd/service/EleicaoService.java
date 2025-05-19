@@ -4,8 +4,6 @@ import com.eleicao.sd.component.CandidatoSender;
 import com.eleicao.sd.component.VotoSender;
 import com.eleicao.sd.dto.CandidatoDTO;
 import com.eleicao.sd.dto.VotoDTO;
-import com.eleicao.sd.dto.UsuarioDTO;
-import com.eleicao.sd.entity.Usuario;
 import com.eleicao.sd.repository.UsuarioRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class EleicaoService {

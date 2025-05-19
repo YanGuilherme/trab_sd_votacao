@@ -1,186 +1,107 @@
-#background {
-  position: relative;
-  width: 1296px;
-  height: 822px;
-  background: #d9d9d9;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-#title {
-  position: absolute;
-  width: 1200px;
-  height: 85px;
-  top: 20px;
-  left: 48px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 64px;
-  line-height: 96px;
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-wrapper {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  gap: 2rem;
+}
+
+.form-panel {
+  flex: 1;
+  background-color: #e3e3e3;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.form-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.form-button {
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+.or-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+}
+
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  background-color: #e3e3e3;
   color: #000000;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bolder;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
 }
 
-#left-panel {
-  position: absolute;
-  width: 307px;
-  height: 475px;
-  top: 150px;
-  left: 200px;
-  background: #6d6c6c;
-  border: 1px solid #000000;
+.back-button:hover {
+  background-color: #aaaaaa;
 }
 
-#right-panel {
-  position: absolute;
-  width: 307px;
-  height: 475px;
-  top: 150px;
-  left: 789px;
-  background: #6d6c6c;
-  border: 1px solid #000000;
-}
+@media (max-width: 768px) {
+  .form-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 
-#left-label {
-  position: absolute;
-  width: 273px;
-  height: 71px;
-  top: 30px;
-  left: 17px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 45px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-}
+  .form-panel {
+    width: 100%;
+    max-width: 300px;
+  }
 
-/* Crie seu nick (Right Label) */
-#right-label {
-  position: absolute;
-  width: 273px;
-  height: 71px;
-  top: 30px;
-  left: 17px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 45px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-}
+  .or-text {
+    margin: 1rem 0;
+  }
 
-/* Rectangle 5 (Left Input) */
-#left-input {
-  position: absolute;
-  width: 250px;
-  height: 62px;
-  top: 120px;
-  left: 28px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  padding: 0 10px;
-}
-
-/* Rectangle 7 (Right Input) */
-#right-input {
-  position: absolute;
-  width: 250px;
-  height: 62px;
-  top: 120px;
-  left: 28px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  padding: 0 10px;
-}
-
-/* Rectangle 6 (Entrar Button) */
-#enter-button {
-  position: absolute;
-  width: 250px;
-  height: 78px;
-  top: 200px;
-  left: 28px;
-  background: #39b334;
-  border: 1px solid #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-
-/* Rectangle 8 (Criar Button) */
-#create-button {
-  position: absolute;
-  width: 250px;
-  height: 78px;
-  top: 200px;
-  left: 28px;
-  background: #39b334;
-  border: 1px solid #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-
-/* Entrar (Button Text) */
-#enter-text {
-  position: absolute;
-  width: 229px;
-  height: 49px;
-  top: 15px;
-  left: 10px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 45px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-}
-
-/* Criar (Button Text) */
-#create-text {
-  position: absolute;
-  width: 229px;
-  height: 49px;
-  top: 15px;
-  left: 10px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 45px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-}
-
-/* ou (Or Text) */
-#or-text {
-  position: absolute;
-  width: 134px;
-  height: 97px;
-  top: 300px;
-  left: 581px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 75px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ff0000;
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 1.2rem;
+  }
 }
