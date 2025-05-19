@@ -43,7 +43,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router) {
     this.stompClient = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:9090/ws'),
+      webSocketFactory: () => new SockJS('http://192.168.3.4:9090/ws'),
       reconnectDelay: 5000,
       heartbeatIncoming: 4000,
       heartbeatOutgoing: 4000,

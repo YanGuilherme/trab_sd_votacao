@@ -26,6 +26,7 @@ export class LoginComponent {
         localStorage.setItem('token', response.data);
         this.router.navigate(['/list-candidate']);
       } catch (error: any) {
+        console.error(error)
         alert(error?.response?.data || 'Erro ao fazer login.');
       }
     } else {

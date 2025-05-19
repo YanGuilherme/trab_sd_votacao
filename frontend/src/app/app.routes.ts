@@ -5,9 +5,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'bemvindo', pathMatch: 'full' }, // Redirecionar vazio para "inicio"
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  { path: 'bemvindo', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: 'list-candidate',
     component: ListCandidateComponent,
