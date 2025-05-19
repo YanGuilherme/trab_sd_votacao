@@ -1,0 +1,42 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     # Porta do protocolo AMQP
+      - "15672:15672"   # Porta da interface web (management)
+    environment:
+      RABBITMQ_DEFAULT_USER: yan
+      RABBITMQ_DEFAULT_PASS: yan
+    hostname: sd-rabbit
+    restart: unless-stopped
+
+  postgres_core:
+    image: postgres:latest
+    container_name: bd_sd_core
+    restart: always
+    environment:
+      POSTGRES_DB: core
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_core_data:/var/lib/postgresql/data
+
+  postgres_eleicao:
+    image: postgres:latest
+    container_name: postgres_eleicao
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: eleicao
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_eleicao_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_core_data:
+  postgres_eleicao_data:
