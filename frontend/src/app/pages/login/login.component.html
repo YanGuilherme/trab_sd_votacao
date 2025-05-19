@@ -1,0 +1,30 @@
+<div class="container">
+  <a class="back-button" routerLink="/bemvindo" title="Voltar"> &#8592; </a>
+  <h1 class="title">Sistema de votação GP2</h1>
+
+  <div class="form-wrapper">
+    <div class="form-panel">
+      <label class="form-label">Insira seu nick</label>
+      <input
+        class="form-input"
+        type="text"
+        [(ngModel)]="loginNick"
+        placeholder="Seu nick"
+      />
+      <button class="form-button" (click)="login()">Entrar</button>
+    </div>
+
+    <div class="or-text">ou</div>
+
+    <div class="form-panel">
+      <label class="form-label">Crie seu nick</label>
+      <input
+        class="form-input"
+        type="text"
+        [(ngModel)]="createNick"
+        placeholder="Novo nick"
+      />
+      <button class="form-button" (click)="createAccount()">Criar</button>
+    </div>
+  </div>
+</div>
