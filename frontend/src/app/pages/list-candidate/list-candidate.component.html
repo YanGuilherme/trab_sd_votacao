@@ -6,15 +6,19 @@
       <button class="button-logout" (click)="logout()">Sair</button>
     </div>
   </div>
+  @if (error) {
+  <div class="mensagem-erro">
+    {{ error }}
+  </div>
+  }@else if (hit) {
+  <div class="mensagem-hit">
+    {{ hit }}
+  </div>
+  }
 
   <button class="add-candidato" (click)="abrirModal()">
     Adicionar candidato
   </button>
-  @if (error) {
-    <div class="mensagem-erro">
-      {{ error }}
-    </div>
-  }
 
   <p>Link para foto aleatória: https://picsum.photos/200/</p>
 
@@ -28,30 +32,24 @@
         [foto]="candidato.foto"
         [quantidadeVotos]="candidato.quantidadeVotos"
       />
-      <button class="votar" (click)="votar(candidato.id)">Votar</button>
+      <button class="votar" (click)="votar(candidato)">Votar</button>
     </div>
     }
   </div>
 </div>
 
 @if(mostrarModal){
-  <div class="modal-backdrop">
-    <div class="modal">
-      <button class="fechar-btn" (click)="fecharModal()">×</button>
+<div class="modal-backdrop">
+  <div class="modal">
+    <button class="fechar-btn" (click)="fecharModal()">×</button>
 
-      @if (error) {
-        <div class="mensagem-erro">
-          {{ error }}
-        </div>
-      }
+    <label>Nome</label>
+    <input [(ngModel)]="novoCandidato.nome" type="text" />
 
-      <label>Nome</label>
-      <input [(ngModel)]="novoCandidato.nome" type="text" />
+    <label>Link da foto</label>
+    <input [(ngModel)]="novoCandidato.foto" type="text" />
 
-      <label>Link da foto</label>
-      <input [(ngModel)]="novoCandidato.foto" type="text" />
-
-      <button class="criar" (click)="adicionarCandidato()">Criar</button>
-    </div>
+    <button class="criar" (click)="adicionarCandidato()">Criar</button>
   </div>
-  }
+</div>
+}
