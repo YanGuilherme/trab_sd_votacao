@@ -47,7 +47,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsers(@RequestHeader("Authorization") String token){
         String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
-        if(userService.existeUserByNick(nick)){
+        if(nick.equals("yan")){
             List<Usuario> list = userService.buscarUsers();
             return ResponseEntity.ok(list);
         }
