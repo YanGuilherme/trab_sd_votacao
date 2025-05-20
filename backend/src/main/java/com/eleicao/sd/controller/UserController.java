@@ -6,6 +6,7 @@ import com.eleicao.sd.service.EleicaoService;
 import com.eleicao.sd.service.UserService;
 import com.eleicao.sd.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,8 +45,12 @@ public class UserController {
 
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> listarUsers(){
-        List<Usuario> list = userService.buscarUsers();
-        return ResponseEntity.ok(list);
+    public ResponseEntity<List<Usuario>> listarUsers(@RequestHeader("Authorization") String token){
+        String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
+        if(userService.existeUserByNick(nick)){
+            List<Usuario> list = userService.buscarUsers();
+            return ResponseEntity.ok(list);
+        }
+        return ResponseEntity.status(401).build();
     }
 }

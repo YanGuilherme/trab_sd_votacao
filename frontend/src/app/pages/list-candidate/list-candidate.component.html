@@ -10,6 +10,12 @@
   <button class="add-candidato" (click)="abrirModal()">
     Adicionar candidato
   </button>
+  @if (error) {
+    <div class="mensagem-erro">
+      {{ error }}
+    </div>
+  }
+
   <p>Link para foto aleatória: https://picsum.photos/200/</p>
 
   <h3 class="titulo">Candidatos:</h3>
@@ -28,18 +34,24 @@
   </div>
 </div>
 
-<!-- Modal -->
 @if(mostrarModal){
-<div class="modal-backdrop">
-  <div class="modal">
-    <button class="fechar-btn" (click)="fecharModal()">×</button>
-    <label>Nome</label>
-    <input [(ngModel)]="novoCandidato.nome" type="text" />
+  <div class="modal-backdrop">
+    <div class="modal">
+      <button class="fechar-btn" (click)="fecharModal()">×</button>
 
-    <label>Link da foto</label>
-    <input [(ngModel)]="novoCandidato.foto" type="text" />
+      @if (error) {
+        <div class="mensagem-erro">
+          {{ error }}
+        </div>
+      }
 
-    <button class="criar" (click)="adicionarCandidato()">Criar</button>
+      <label>Nome</label>
+      <input [(ngModel)]="novoCandidato.nome" type="text" />
+
+      <label>Link da foto</label>
+      <input [(ngModel)]="novoCandidato.foto" type="text" />
+
+      <button class="criar" (click)="adicionarCandidato()">Criar</button>
+    </div>
   </div>
-</div>
-}
+  }

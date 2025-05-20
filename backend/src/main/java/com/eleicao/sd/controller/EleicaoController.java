@@ -2,6 +2,7 @@ package com.eleicao.sd.controller;
 
 import com.eleicao.sd.dto.CandidatoDTO;
 import com.eleicao.sd.service.EleicaoService;
+import com.eleicao.sd.service.UserService;
 import com.eleicao.sd.utils.JwtUtil;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class EleicaoController {
 
     @Autowired
     private EleicaoService eleicaoService;
+
+    @Autowired
+    private UserService userService;
 
     @Transactional
     @PostMapping("/votar/{id_candidato}")
@@ -31,15 +35,20 @@ public class EleicaoController {
     }
 
     @PostMapping("/candidato")
-    public ResponseEntity<?> criarCandidato(@RequestBody CandidatoDTO candidato){
-        try {
-            eleicaoService.createCandidato(candidato);
-            return ResponseEntity.status(201).build();
-        } catch (RuntimeException e) {
-            if (e.getMessage().equals("nome ja existe")) {
-                return ResponseEntity.status(400).body(e.getMessage());
+    public ResponseEntity<?> criarCandidato(@RequestHeader("Authorization") String token, @RequestBody CandidatoDTO candidato){
+        String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
+        if(userService.existeUserByNick(nick)){
+            try {
+                eleicaoService.createCandidato(candidato);
+                return ResponseEntity.status(201).build();
+            } catch (RuntimeException e) {
+                if (e.getMessage().equals("nome ja existe")) {
+                    return ResponseEntity.status(400).body(e.getMessage());
+                }
+                return ResponseEntity.status(500).body("erro interno");
             }
-            return ResponseEntity.status(500).body("erro interno");
         }
+        return ResponseEntity.status(401).build();
+
     }
 }

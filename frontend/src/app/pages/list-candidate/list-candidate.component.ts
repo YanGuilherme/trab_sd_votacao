@@ -7,6 +7,7 @@ import SockJS from 'sockjs-client';
 import { Client, Message } from '@stomp/stompjs';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { isTokenValid } from '../../utils/auth.utils';
 
 export interface Candidato {
   id: number;
@@ -146,19 +147,21 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
   }
 
   async adicionarCandidato(): Promise<void> {
+    if (this.logout_no_token()) return;
+
     if (!this.novoCandidato.nome?.trim() || !this.novoCandidato.foto?.trim()) {
       this.error = 'Por favor, preencha todos os campos obrigatórios.';
       return;
     }
 
-    if (this.isSubmitting) {
-      return;
-    }
+    if (this.isSubmitting) return;
 
     this.isSubmitting = true;
     this.error = null;
 
     try {
+      const token = localStorage.getItem('token');
+
       const candidatoData = {
         nome: this.novoCandidato.nome.trim(),
         foto: this.novoCandidato.foto.trim(),
@@ -166,7 +169,12 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
       const response = await apiBase.post(
         '/eleicao-gp2/candidato',
-        candidatoData
+        candidatoData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       this.fecharModal();
     } catch (error: any) {
@@ -174,8 +182,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
       this.isSubmitting = false;
 
       if (error.response?.status === 400) {
-        this.error =
-          error.response.data?.message || 'Nome já existe ou dados inválidos.';
+        this.error = error.response.data?.message || 'Nome já existe ou dados inválidos.';
       } else if (error.response?.status === 409) {
         this.error = 'Candidato com este nome já existe.';
       } else if (error.response?.status >= 500) {
@@ -186,18 +193,12 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     }
   }
 
+
+
   votar(candidato_id: Number): void {
+    if (this.logout_no_token()) return;
+
     const token = localStorage.getItem('token');
-    if (!token) return;
-
-    const decoded: any = jwtDecode(token);
-    const exp = decoded.exp * 1000;
-
-    if (Date.now() > exp) {
-      localStorage.removeItem('token');
-      this.router.navigate(['/login']);
-      return;
-    }
 
     apiBase.post(
       `/eleicao-gp2/votar/${candidato_id}`,
@@ -210,6 +211,23 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     );
   }
 
+
+  logout_no_token(): boolean {
+    const token = localStorage.getItem('token');
+
+    if (!token || !isTokenValid(token)) {
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
+      alert('Deslogado');
+      return true;
+    }
+
+    return false;
+  }
+
+
+
+
   isValidImageUrl(url: string): boolean {
     const imagePattern = /\.(jpg|jpeg|png|gif|webp)$/i;
     return (
@@ -217,16 +235,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
       url.startsWith('data:image/') ||
       url.startsWith('http')
     );
-  }
-
-  previewImage(): string | null {
-    if (
-      this.novoCandidato.foto &&
-      this.isValidImageUrl(this.novoCandidato.foto)
-    ) {
-      return this.novoCandidato.foto;
-    }
-    return null;
   }
 
   ordenarCandidatosPorVotos(candidatos: Candidato[]): Candidato[] {
@@ -243,6 +251,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+    alert('Deslogado');
     return;
   }
 }
