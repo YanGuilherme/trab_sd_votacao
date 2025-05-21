@@ -32,19 +32,18 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
   candidatos: Candidato[] = [];
   stompClient: Client;
 
-  // Estados da conexão WebSocket
   isConnected = false;
   isConnecting = false;
   error: string | null = null;
+  hit: string | null = null;
 
-  // Modal e formulário
   mostrarModal = false;
   novoCandidato: CandidatoDTO = { nome: '', foto: '' };
   isSubmitting = false;
 
   constructor(private router: Router) {
     this.stompClient = new Client({
-      webSocketFactory: () => new SockJS('http://192.168.3.4:9090/ws'),
+      webSocketFactory: () => new SockJS('http://localhost:8081/ws'),
       reconnectDelay: 5000,
       heartbeatIncoming: 4000,
       heartbeatOutgoing: 4000,
@@ -66,11 +65,10 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     }
 
     this.isConnecting = true;
-    this.error = null;
 
     // Configurar callbacks antes de ativar
-    this.stompClient.onConnect = (frame) => {
-      console.log('Conectado ao WebSocket:', frame);
+    this.stompClient.onConnect = () => {
+      this.hit = 'Conectado ao WebSocket';
       this.isConnected = true;
       this.isConnecting = false;
       this.error = null;
@@ -123,6 +121,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
       this.candidatos = Array.isArray(response.data) ? response.data : [];
     } catch (error) {
       this.candidatos = [];
+      this.error = 'Erro ao buscar candidatos';
     }
   }
 
@@ -176,13 +175,15 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
           },
         }
       );
+      this.hit = 'Criou candidato';
       this.fecharModal();
     } catch (error: any) {
-      console.error('Erro ao adicionar candidato:', error);
+      this.error = 'Erro ao adicionar candidato:';
       this.isSubmitting = false;
 
       if (error.response?.status === 400) {
-        this.error = error.response.data?.message || 'Nome já existe ou dados inválidos.';
+        this.error =
+          error.response.data?.message || 'Nome já existe ou dados inválidos.';
       } else if (error.response?.status === 409) {
         this.error = 'Candidato com este nome já existe.';
       } else if (error.response?.status >= 500) {
@@ -193,24 +194,26 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     }
   }
 
-
-
-  votar(candidato_id: Number): void {
+  votar(candidato: Candidato): void {
     if (this.logout_no_token()) return;
 
     const token = localStorage.getItem('token');
 
-    apiBase.post(
-      `/eleicao-gp2/votar/${candidato_id}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    try {
+      apiBase.post(
+        `/eleicao-gp2/votar/${candidato.id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      this.hit = `Votou no candidato: ${candidato.nome}`;
+    } catch (error) {
+      this.error = 'Erro ao votar';
+    }
   }
-
 
   logout_no_token(): boolean {
     const token = localStorage.getItem('token');
@@ -224,9 +227,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
     return false;
   }
-
-
-
 
   isValidImageUrl(url: string): boolean {
     const imagePattern = /\.(jpg|jpeg|png|gif|webp)$/i;
