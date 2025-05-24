@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,8 +8,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './candidate.component.html',
   styleUrl: './candidate.component.css',
 })
-export class CandidateComponent {
+export class CandidateComponent implements OnInit {
   @Input() nome!: string;
   @Input() foto!: string;
   @Input() quantidadeVotos!: number;
+
+  animar = false;
+
+  ngOnInit(): void {
+    this.animar = false;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['quantidadeVotos']) {
+      this.animar = true;
+
+      setTimeout(() => {
+        this.animar = false;
+      }, 700);
+    }
+  }
 }

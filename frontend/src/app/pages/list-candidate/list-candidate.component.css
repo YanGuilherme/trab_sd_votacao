@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1.5rem;
-  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -174,10 +173,12 @@ h2 {
 }
 
 .mensagem-hit {
+  width: fit-content;
   color: green;
   background-color: #ffffff;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 10px;
   border: 1px solid green;
   border-radius: 5px;
+  margin-left: auto;
 }

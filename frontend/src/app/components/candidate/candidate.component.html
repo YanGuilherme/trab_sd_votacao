@@ -2,9 +2,11 @@
   <div class="nome">{{ nome }}</div>
   <img [src]="foto" alt="Foto de {{ nome }}" class="foto" />
 
-  @if (quantidadeVotos > 0){
-  <div class="votos">Votos: {{ quantidadeVotos }}</div>
-  } @if (quantidadeVotos === 0){
-  <div class="votos">Nenhum voto ainda</div>
+  @if (quantidadeVotos > 0) {
+  <div class="votos" [class.animacao]="animar">
+    Votos: {{ quantidadeVotos }}
+  </div>
+  } @if (quantidadeVotos === 0) {
+  <div class="votos" [class.animacao]="animar">Nenhum voto ainda</div>
   }
 </div>
