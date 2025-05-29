@@ -164,12 +164,14 @@ h2 {
 }
 
 .mensagem-erro {
+  width: fit-content;
   color: red;
-  background-color: #ffe6e6;
-  padding: 10px;
+  background-color: #ffffff;
+  padding: 5px;
   margin-bottom: 10px;
   border: 1px solid red;
   border-radius: 5px;
+  margin-left: auto;
 }
 
 .mensagem-hit {

@@ -25,7 +25,7 @@ public class RabbitConfig {
 
     @Bean
     public MessageConverter jsonMessageConverter() {
-        return new Jackson2JsonMessageConverter(); // usa Jackson para converter objetos JSON
+        return new Jackson2JsonMessageConverter();
     }
 
 }

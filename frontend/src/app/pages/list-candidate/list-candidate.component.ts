@@ -133,20 +133,22 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
   }
 
   abrirModal(): void {
+    if (this.logout_no_token()) return;
+
     this.mostrarModal = true;
     this.novoCandidato = { nome: '', foto: '' };
-    this.error = null;
   }
 
   fecharModal(): void {
     this.mostrarModal = false;
     this.novoCandidato = { nome: '', foto: '' };
-    this.error = null;
     this.isSubmitting = false;
   }
 
   async adicionarCandidato(): Promise<void> {
+
     if (this.logout_no_token()) return;
+
 
     if (!this.novoCandidato.nome?.trim() || !this.novoCandidato.foto?.trim()) {
       this.error = 'Por favor, preencha todos os campos obrigatórios.';
@@ -175,21 +177,15 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
           },
         }
       );
-      this.hit = 'Criou candidato';
+      this.hit = `Candidato criado: ${candidatoData.nome}`;
       this.fecharModal();
     } catch (error: any) {
       this.error = 'Erro ao adicionar candidato:';
       this.isSubmitting = false;
 
-      if (error.response?.status === 400) {
+      if (error.response?.status === 401) {
         this.error =
-          error.response.data?.message || 'Nome já existe ou dados inválidos.';
-      } else if (error.response?.status === 409) {
-        this.error = 'Candidato com este nome já existe.';
-      } else if (error.response?.status >= 500) {
-        this.error = 'Erro interno do servidor. Tente novamente.';
-      } else {
-        this.error = 'Erro ao adicionar candidato. Verifique sua conexão.';
+          error.response.data?.message || 'Não autorizado.';
       }
     }
   }
@@ -228,15 +224,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  isValidImageUrl(url: string): boolean {
-    const imagePattern = /\.(jpg|jpeg|png|gif|webp)$/i;
-    return (
-      imagePattern.test(url) ||
-      url.startsWith('data:image/') ||
-      url.startsWith('http')
-    );
-  }
-
   ordenarCandidatosPorVotos(candidatos: Candidato[]): Candidato[] {
     return candidatos.sort((a, b) => b.quantidadeVotos - a.quantidadeVotos);
   }
@@ -251,7 +238,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
-    alert('Deslogado');
+    alert('Faça o login novamente');
     return;
   }
 }

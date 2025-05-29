@@ -30,7 +30,7 @@ public class EleicaoService {
 
 
     public void createCandidato(CandidatoDTO candidatoDTO){
-        logger.info("Criou candidato: {}", candidatoDTO.getNome());
+        logger.info("Enviou candidato para ser criado: {}", candidatoDTO.getNome());
         candidatoSender.criarCandidato(candidatoDTO);
     }
 

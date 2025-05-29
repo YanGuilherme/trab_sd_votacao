@@ -7,13 +7,13 @@
     </div>
   </div>
   @if (error) {
-  <div class="mensagem-erro">
-    {{ error }}
-  </div>
+    <div class="mensagem-erro">
+      {{ error }}
+    </div>
   }@else if (hit) {
-  <div class="mensagem-hit">
-    {{ hit }}
-  </div>
+    <div class="mensagem-hit">
+      {{ hit }}
+    </div>
   }
 
   <button class="add-candidato" (click)="abrirModal()">
@@ -22,7 +22,12 @@
 
   <p>Link para foto aleatória: https://picsum.photos/200/</p>
 
-  <h3 class="titulo">Candidatos:</h3>
+  @if (candidatos.length > 0) {
+
+    <h3 class="titulo">Candidatos:</h3>
+  }@else {
+    <h3 class="titulo">Sem candidatos para exibir.</h3>
+  }
 
   <div class="lista-candidatos">
     @for (candidato of candidatos; track candidato.nome) {

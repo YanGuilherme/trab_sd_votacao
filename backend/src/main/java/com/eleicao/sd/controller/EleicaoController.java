@@ -38,15 +38,8 @@ public class EleicaoController {
     public ResponseEntity<?> criarCandidato(@RequestHeader("Authorization") String token, @RequestBody CandidatoDTO candidato){
         String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
         if(userService.existeUserByNick(nick)){
-            try {
-                eleicaoService.createCandidato(candidato);
-                return ResponseEntity.status(201).build();
-            } catch (RuntimeException e) {
-                if (e.getMessage().equals("nome ja existe")) {
-                    return ResponseEntity.status(400).body(e.getMessage());
-                }
-                return ResponseEntity.status(500).body("erro interno");
-            }
+            eleicaoService.createCandidato(candidato);
+            return ResponseEntity.status(201).build();
         }
         return ResponseEntity.status(401).build();
 
