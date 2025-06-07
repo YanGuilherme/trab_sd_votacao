@@ -1,6 +1,6 @@
 package com.eleicao.core.component;
 
-import com.eleicao.core.entity.Candidato;
+import com.eleicao.core.dto.CandidatoDTO;
 import com.eleicao.core.service.CandidatoService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
@@ -19,9 +19,9 @@ public class CandidatoPublisher {
     }
 
     public void publicarListaCandidatos() {
-        List<Candidato> candidatos = candidatoService.listarCandidatos();
+        List<CandidatoDTO> candidatos = candidatoService.listarPorQuantidadeVotosDesc();
 
-        rabbitTemplate.convertAndSend("exchange-candidatos", "", candidatos); // "" = routingKey ignorado em fanout
+        rabbitTemplate.convertAndSend("exchange-candidatos", "", candidatos);
     }
 }
 

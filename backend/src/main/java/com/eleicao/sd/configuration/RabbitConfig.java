@@ -11,16 +11,11 @@ import org.springframework.amqp.core.Queue;
 @Configuration
 public class RabbitConfig {
     public static final String FILA_VOTOS = "fila-votos";
-    public static final String FILA_CANDIDATOS = "fila-candidatos";
-
 
     @Bean
     public Queue filaVotos() {
         return new Queue(FILA_VOTOS, true);
     }
-
-    @Bean
-    public Queue filaCandidatos() { return new Queue(FILA_CANDIDATOS, true);}
 
 
     @Bean

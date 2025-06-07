@@ -28,7 +28,6 @@ public class UserController {
         return ResponseEntity.badRequest().body("user nao existe");
     }
 
-
     @PostMapping
     public ResponseEntity<?> criarUser(@RequestBody UsuarioDTO user) {
         try {
@@ -42,7 +41,6 @@ public class UserController {
             return ResponseEntity.status(500).body("erro interno");
         }
     }
-
 
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsers(@RequestHeader("Authorization") String token){

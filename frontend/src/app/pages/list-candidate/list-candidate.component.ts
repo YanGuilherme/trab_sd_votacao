@@ -12,14 +12,9 @@ import { isTokenValid } from '../../utils/auth.utils';
 export interface Candidato {
   id: number;
   nome: string;
-  foto: string;
   quantidadeVotos: number;
 }
 
-export interface CandidatoDTO {
-  nome: string;
-  foto: string;
-}
 
 @Component({
   selector: 'app-list-candidate',
@@ -38,7 +33,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
   hit: string | null = null;
 
   mostrarModal = false;
-  novoCandidato: CandidatoDTO = { nome: '', foto: '' };
   isSubmitting = false;
 
   constructor(private router: Router) {
@@ -75,10 +69,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
       this.stompClient.subscribe('/topic/candidatos', (message: Message) => {
         try {
-          const novoCandidatos = JSON.parse(message.body);
-          this.candidatos = Array.isArray(novoCandidatos)
-            ? this.ordenarCandidatosPorVotos(novoCandidatos)
-            : [];
+          this.candidatos = JSON.parse(message.body);
         } catch (error) {
           this.error = 'Erro ao processar dados recebidos';
         }
@@ -132,63 +123,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  abrirModal(): void {
-    if (this.logout_no_token()) return;
-
-    this.mostrarModal = true;
-    this.novoCandidato = { nome: '', foto: '' };
-  }
-
-  fecharModal(): void {
-    this.mostrarModal = false;
-    this.novoCandidato = { nome: '', foto: '' };
-    this.isSubmitting = false;
-  }
-
-  async adicionarCandidato(): Promise<void> {
-
-    if (this.logout_no_token()) return;
-
-
-    if (!this.novoCandidato.nome?.trim() || !this.novoCandidato.foto?.trim()) {
-      this.error = 'Por favor, preencha todos os campos obrigatórios.';
-      return;
-    }
-
-    if (this.isSubmitting) return;
-
-    this.isSubmitting = true;
-    this.error = null;
-
-    try {
-      const token = localStorage.getItem('token');
-
-      const candidatoData = {
-        nome: this.novoCandidato.nome.trim(),
-        foto: this.novoCandidato.foto.trim(),
-      };
-
-      const response = await apiBase.post(
-        '/eleicao-gp2/candidato',
-        candidatoData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      this.hit = `Candidato criado: ${candidatoData.nome}`;
-      this.fecharModal();
-    } catch (error: any) {
-      this.error = 'Erro ao adicionar candidato:';
-      this.isSubmitting = false;
-
-      if (error.response?.status === 401) {
-        this.error =
-          error.response.data?.message || 'Não autorizado.';
-      }
-    }
-  }
 
   votar(candidato: Candidato): void {
     if (this.logout_no_token()) return;
@@ -222,10 +156,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     }
 
     return false;
-  }
-
-  ordenarCandidatosPorVotos(candidatos: Candidato[]): Candidato[] {
-    return candidatos.sort((a, b) => b.quantidadeVotos - a.quantidadeVotos);
   }
 
   returnNick() {

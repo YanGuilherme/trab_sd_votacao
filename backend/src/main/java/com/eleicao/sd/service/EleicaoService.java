@@ -1,8 +1,6 @@
 package com.eleicao.sd.service;
 
-import com.eleicao.sd.component.CandidatoSender;
 import com.eleicao.sd.component.VotoSender;
-import com.eleicao.sd.dto.CandidatoDTO;
 import com.eleicao.sd.dto.VotoDTO;
 import com.eleicao.sd.repository.UsuarioRepository;
 import org.apache.logging.log4j.LogManager;
@@ -21,17 +19,9 @@ public class EleicaoService {
     private static final Logger logger = LogManager.getLogger(EleicaoService.class);
 
     private final VotoSender votoSender;
-    private final CandidatoSender candidatoSender;
 
-    public EleicaoService(VotoSender votoSender, CandidatoSender candidatoSender) {
+    public EleicaoService(VotoSender votoSender) {
         this.votoSender = votoSender;
-        this.candidatoSender = candidatoSender;
-    }
-
-
-    public void createCandidato(CandidatoDTO candidatoDTO){
-        logger.info("Enviou candidato para ser criado: {}", candidatoDTO.getNome());
-        candidatoSender.criarCandidato(candidatoDTO);
     }
 
     public String votar(String nick, Long id_candidato) {
