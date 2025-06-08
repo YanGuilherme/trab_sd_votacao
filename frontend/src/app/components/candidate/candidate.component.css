@@ -15,7 +15,7 @@
   width: 200px;
   height: 200px;
   border-radius: 4px;
-  margin: 0.5rem auto; /* auto nas laterais centraliza em display block */
+  margin: 0.5rem auto; 
   display: block;
 }
 .votos {

@@ -1,6 +1,6 @@
 .lista-candidatos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* antes era 180px */
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -30,7 +30,6 @@
   background-color: #0056b3;
 }
 
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -45,7 +44,7 @@ h2 {
 
 @media (max-width: 768px) {
   .lista-candidatos {
-    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   }
 
   .ver-resultados {

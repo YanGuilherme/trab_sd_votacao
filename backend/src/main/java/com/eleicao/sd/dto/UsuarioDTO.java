@@ -13,4 +13,6 @@ public class UsuarioDTO {
     String id;
 
     String nick;
+    private String senha;
+
 }
