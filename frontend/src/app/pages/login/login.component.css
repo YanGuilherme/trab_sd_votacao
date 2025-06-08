@@ -105,3 +105,9 @@
     font-size: 1.2rem;
   }
 }
+
+.error {
+  color: red;
+  text-align: left;
+  margin-bottom: 6px;
+}

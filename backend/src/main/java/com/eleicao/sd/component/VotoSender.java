@@ -1,7 +1,6 @@
 package com.eleicao.sd.component;
 
 import com.eleicao.sd.configuration.RabbitConfig;
-import com.eleicao.sd.dto.CandidatoDTO;
 import com.eleicao.sd.dto.VotoDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

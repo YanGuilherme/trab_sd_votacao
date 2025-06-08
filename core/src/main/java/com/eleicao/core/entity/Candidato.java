@@ -22,10 +22,20 @@ public class Candidato {
 
     private Long quantidadeVotos;
 
-    private String foto;
+    @Lob
+    private byte[] foto;
+
+    public Candidato(String nome, Long quantidadeVotos, byte[] bytes) {
+        this.nome = nome;
+        this.quantidadeVotos = quantidadeVotos;
+        this.foto = bytes;
+    }
+
 
     @PrePersist
     private void onCreateQuantidadeVotos(){
         this.quantidadeVotos = 0L;
     }
+
+
 }

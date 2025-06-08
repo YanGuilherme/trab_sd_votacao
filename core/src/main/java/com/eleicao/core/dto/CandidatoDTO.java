@@ -8,15 +8,17 @@ import lombok.*;
 @NoArgsConstructor
 public class CandidatoDTO {
 
+    private Long id;
+
     private String nome;
 
-    private String foto;
+    private Long quantidadeVotos;
+
 
     @Override
     public String toString() {
         return "CandidatoDTO{" +
                 "nome='" + nome + '\'' +
-                ", foto='" + foto + '\'' +
                 '}';
     }
 }

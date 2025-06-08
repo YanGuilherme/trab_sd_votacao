@@ -16,4 +16,7 @@ public class Usuario {
 
     @Column(unique = true, nullable = false) // permitir espacos? caracteres especiais??
     private String nick;
+
+    @Column(nullable = false)
+    private String senha; // hash da senha
 }

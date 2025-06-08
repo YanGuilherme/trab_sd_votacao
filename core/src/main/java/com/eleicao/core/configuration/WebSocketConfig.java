@@ -12,9 +12,15 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOriginPatterns("http://localhost:4200", "http://192.168.3.4:4200").withSockJS();
-    }
+        registry
+                .addEndpoint("/ws")
+                .setAllowedOriginPatterns("http://localhost:4200", "http://192.168.3.4:4200");
 
+        registry
+                .addEndpoint("/ws")
+                .setAllowedOriginPatterns("http://localhost:4200", "http://192.168.3.4:4200")
+                .withSockJS();
+    }
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.enableSimpleBroker("/topic");

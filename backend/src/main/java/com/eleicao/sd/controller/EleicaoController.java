@@ -1,6 +1,5 @@
 package com.eleicao.sd.controller;
 
-import com.eleicao.sd.dto.CandidatoDTO;
 import com.eleicao.sd.service.EleicaoService;
 import com.eleicao.sd.service.UserService;
 import com.eleicao.sd.utils.JwtUtil;
@@ -32,16 +31,5 @@ public class EleicaoController {
         } catch (Exception e) {
             return ResponseEntity.status(401).body("Token inválido ou expirado");
         }
-    }
-
-    @PostMapping("/candidato")
-    public ResponseEntity<?> criarCandidato(@RequestHeader("Authorization") String token, @RequestBody CandidatoDTO candidato){
-        String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
-        if(userService.existeUserByNick(nick)){
-            eleicaoService.createCandidato(candidato);
-            return ResponseEntity.status(201).build();
-        }
-        return ResponseEntity.status(401).build();
-
     }
 }

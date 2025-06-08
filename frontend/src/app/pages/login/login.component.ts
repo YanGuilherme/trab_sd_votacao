@@ -12,39 +12,68 @@ import { apiBase } from '../../service/api';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  loginNick = '';
-  createNick = '';
+  loginNick: string = '';
+  loginSenha: string = '';
+  createNick: string = '';
+  createSenha: string = '';
 
-  constructor(private router: Router) {}
+  errorLogin: string = '';
+  errorCreate: string = '';
+
+  constructor(private router: Router) {
+    this.errorLogin = '';
+    this.errorCreate = '';
+  }
 
   async login(): Promise<void> {
-    if (this.loginNick) {
+    if (this.loginNick && this.loginSenha) {
       try {
         const response = await apiBase.post('/user/token', {
           nick: this.loginNick,
+          senha: this.loginSenha,
         });
         localStorage.setItem('token', response.data);
         this.router.navigate(['/list-candidate']);
       } catch (error: any) {
-        console.error(error)
-        alert(error?.response?.data || 'Erro ao fazer login.');
+        this.errorLogin = error?.response?.data || 'Erro ao fazer login.';
+        this.errorCreate = '';
       }
     } else {
-      alert('Por favor, insira um nick para entrar.');
+      this.errorLogin = 'Por favor, insira o nick e a senha para entrar.';
+      this.errorCreate = '';
     }
   }
 
   async createAccount(): Promise<void> {
-    if (this.createNick) {
+    if (this.createNick && this.createSenha) {
+      if (/\s/.test(this.createNick)) {
+        this.errorCreate = 'Nick não pode conter espaços.';
+        this.errorLogin = '';
+
+        return;
+      }
+
+      if (this.createSenha.length < 6 || this.createSenha.length > 16) {
+        this.errorCreate = 'Senha inválida. Use de 6 a 16 caracteres.';
+        this.errorLogin = '';
+
+        return;
+      }
+
       try {
-        const response = await apiBase.post('/user', { nick: this.createNick });
+        const response = await apiBase.post('/user', {
+          nick: this.createNick,
+          senha: this.createSenha,
+        });
         localStorage.setItem('token', response.data);
         this.router.navigate(['/list-candidate']);
       } catch (error: any) {
-        alert(error?.response?.data || 'Erro ao criar conta.');
+        this.errorCreate = error?.response?.data || 'Erro ao criar conta.';
+        this.errorLogin = '';
       }
     } else {
-      alert('Por favor, crie um nick para continuar.');
+      this.errorCreate = 'Por favor, preencha o nick e a senha.';
+      this.errorLogin = '';
     }
   }
 }

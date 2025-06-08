@@ -1,6 +1,6 @@
 <div class="card">
   <div class="nome">{{ nome }}</div>
-  <img [src]="foto" alt="Foto de {{ nome }}" class="foto" />
+  <img class="foto" [src]="'http://localhost:8081/eleicao-gp2/candidatos/' + id + '/imagem'" />
 
   @if (quantidadeVotos > 0) {
   <div class="votos" [class.animacao]="animar">

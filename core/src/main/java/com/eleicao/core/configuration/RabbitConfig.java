@@ -23,7 +23,6 @@ import java.util.Map;
 @Configuration
 public class RabbitConfig {
     public static final String FILA_VOTOS = "fila-votos";
-    public static final String FILA_CANDIDATOS = "fila-candidatos";
     public static final String FILA_WEBSOCKET_CANDIDATOS = "websocket-candidatos-fila";
 
 
@@ -35,10 +34,6 @@ public class RabbitConfig {
         return new Queue(FILA_VOTOS, true);
     }
 
-    @Bean
-    public Queue filaCandidatos(){
-        return new Queue(FILA_CANDIDATOS, true);
-    }
 
     @Bean
     public Queue filaWebSocketCandidatos(){
