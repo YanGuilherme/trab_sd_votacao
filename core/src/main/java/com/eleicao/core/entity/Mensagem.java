@@ -24,7 +24,7 @@ public class Mensagem {
 
     private Long valor;
 
-    private LocalDateTime timestamp;
+    private LocalDateTime dateTime;
 
     @Override
     public String toString() {
@@ -32,7 +32,7 @@ public class Mensagem {
                 ", type='" + type + '\'' +
                 ", object='" + object + '\'' +
                 ", valor=" + valor +
-                ", timestamp=" + timestamp +
+                ", timestamp=" + dateTime +
                 '}';
     }
 }

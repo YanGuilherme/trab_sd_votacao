@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class MensagemListener {
     private static final Logger logger = LogManager.getLogger(MensagemListener.class);
@@ -19,6 +21,9 @@ public class MensagemListener {
 
     @Autowired
     private CandidatoPublisher candidatoPublisher;
+
+    @Autowired
+    private CidadePublisher cidadePublisher;
 
     @RabbitListener(queues = RabbitConfig.FILA_VOTOS)
     public void processarVoto(@Payload MensagemDTO mensagemDTO) {
@@ -35,12 +40,11 @@ public class MensagemListener {
     @RabbitListener(queues = RabbitConfig.FILA_CIDADES)
     public void processarAtualizacaoQualidadeAr(@Payload MensagemDTO mensagemDTO) {
         try {
-
-            mensagemService.processarVoto(mensagemDTO);
-            candidatoPublisher.publicarListaCandidatos();
-            logger.info("Voto processado e lista atualizada: {}", mensagemDTO.toString());
+            mensagemService.processarQualidadeAr(mensagemDTO);
+            cidadePublisher.publicarCidades();
+            logger.info("Cidade processada e lista atualizada: {}", mensagemDTO.toString());
         } catch (Exception e) {
-            logger.error("Erro ao processar voto: {}", mensagemDTO.toString(), e);
+            logger.error("Erro ao processar cidade: {}", mensagemDTO.toString(), e);
             throw e;
         }
     }

@@ -2,9 +2,11 @@ package com.eleicao.core.service;
 
 import com.eleicao.core.dto.MensagemDTO;
 import com.eleicao.core.entity.Candidato;
+import com.eleicao.core.entity.Cidade;
 import com.eleicao.core.entity.Mensagem;
 import com.eleicao.core.repository.CandidatoRepository;
-import com.eleicao.core.repository.VotoRepository;
+import com.eleicao.core.repository.CidadeRepository;
+import com.eleicao.core.repository.MensagemRepository;
 import jakarta.transaction.Transactional;
 
 
@@ -18,10 +20,13 @@ import org.springframework.stereotype.Service;
 public class MensagemService {
 
     @Autowired
-    private VotoRepository votoRepository;
+    private MensagemRepository mensagemRepository;
 
     @Autowired
     private CandidatoRepository candidatoRepository;
+
+    @Autowired
+    private CidadeRepository cidadeRepository;
 
     private static final Logger logger = LogManager.getLogger(MensagemService.class);
 
@@ -33,9 +38,18 @@ public class MensagemService {
         mensagem.setType(mensagemDTO.getType());
         mensagem.setValor(mensagemDTO.getValor());
         mensagem.setObject(nome_candidato);
-        mensagem.setTimestamp(mensagemDTO.getTimestamp());
+        mensagem.setDateTime(mensagemDTO.getDateTime());
         logger.info("Voto salvo: {}", mensagem.toString());
-        votoRepository.save(mensagem);
+        mensagemRepository.save(mensagem);
+    }
+
+    @Transactional
+    public void salvarAtualizacaoAr(MensagemDTO mensagemDTO){
+        Mensagem mensagem = new Mensagem();
+        mensagem.setType(mensagemDTO.getType());
+        mensagem.setObject(mensagemDTO.getObject());
+        mensagem.setValor(mensagemDTO.getValor());
+        mensagem.setDateTime(mensagemDTO.getDateTime());
     }
 
     @Transactional //para grupo de votacao
@@ -60,6 +74,25 @@ public class MensagemService {
 
     @Transactional
     public void processarQualidadeAr(MensagemDTO mensagemDTO){
+        try{
+            Long id = Long.parseLong(mensagemDTO.getObject());
+
+            Cidade cidade = cidadeRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Cidade não encontrada"));
+
+            cidade.setValor_qualidade_ar(mensagemDTO.getValor());
+            salvarAtualizacaoAr(mensagemDTO);
+
+            // chamar as funcoes para calcular media mediana.
+
+
+            cidadeRepository.save(cidade);
+
+        }catch (NumberFormatException e){
+            throw new RuntimeException("ID da cidade inválido: deve ser um número.");
+        }
 
     }
+
+
 }

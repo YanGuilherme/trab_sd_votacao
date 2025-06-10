@@ -1,9 +1,6 @@
 package com.eleicao.core.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -12,6 +9,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Cidade {
 
     @Id
@@ -20,12 +18,20 @@ public class Cidade {
 
     private String nome;
 
-    private Integer valor_qualidade_ar;
+    private Long valor_qualidade_ar;
 
     private BigDecimal media;
 
-    private BigDecimal mediana;
+    private Long mediana;
 
     @Lob
     private byte[] foto;
+
+    public Cidade(String nome, Long valor_qualidade_ar, BigDecimal media, Long mediana, byte[] foto) {
+        this.nome = nome;
+        this.valor_qualidade_ar = valor_qualidade_ar;
+        this.media = media;
+        this.mediana = mediana;
+        this.foto = foto;
+    }
 }
