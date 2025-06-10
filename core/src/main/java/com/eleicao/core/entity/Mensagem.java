@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Voto {
+public class Mensagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +24,7 @@ public class Voto {
 
     private Long valor;
 
-    private LocalDateTime timestamp;
+    private LocalDateTime dateTime;
 
     @Override
     public String toString() {
@@ -32,7 +32,7 @@ public class Voto {
                 ", type='" + type + '\'' +
                 ", object='" + object + '\'' +
                 ", valor=" + valor +
-                ", timestamp=" + timestamp +
+                ", timestamp=" + dateTime +
                 '}';
     }
 }

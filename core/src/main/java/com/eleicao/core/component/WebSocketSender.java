@@ -16,5 +16,7 @@ public class WebSocketSender {
     public void enviarCandidatos(List<Candidato> candidatos) {
         messagingTemplate.convertAndSend("/topic/candidatos", candidatos);
     }
+
+    //funcao para expor as cidades
 }
 

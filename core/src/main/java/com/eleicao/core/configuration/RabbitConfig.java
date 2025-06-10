@@ -1,5 +1,6 @@
 package com.eleicao.core.configuration;
 
+import com.eleicao.core.dto.MensagemDTO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.core.Binding;
@@ -23,7 +24,9 @@ import java.util.Map;
 @Configuration
 public class RabbitConfig {
     public static final String FILA_VOTOS = "fila-votos";
+    public static final String FILA_CIDADES = "fila-cidades";
     public static final String FILA_WEBSOCKET_CANDIDATOS = "websocket-candidatos-fila";
+    public static final String FILA_WEBSOCKET_CIDADES = "websocket-cidades-fila";
 
 
     private static final Logger logger = LogManager.getLogger(RabbitConfig.class);
@@ -41,6 +44,12 @@ public class RabbitConfig {
     }
 
     @Bean
+    public Queue filaCidades() {return new Queue(FILA_CIDADES, true); }
+
+    @Bean
+    public Queue filaWebSocketCidades() { return new Queue(FILA_WEBSOCKET_CIDADES, true); }
+
+    @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
@@ -54,7 +63,7 @@ public class RabbitConfig {
         typeMapper.setTrustedPackages("*"); // permite qualquer pacote
 
         Map<String, Class<?>> idClassMapping = new HashMap<>();
-        idClassMapping.put("com.eleicao.sd.dto.VotoDTO", com.eleicao.core.dto.VotoDTO.class);
+        idClassMapping.put("com.eleicao.sd.dto.VotoDTO", MensagemDTO.class);
         typeMapper.setIdClassMapping(idClassMapping);
 
         converter.setJavaTypeMapper(typeMapper);
@@ -79,6 +88,9 @@ public class RabbitConfig {
     }
 
     @Bean
+    public FanoutExchange cidadesFanoutExchange() { return new FanoutExchange("websocket-cidades-fila"); }
+
+    @Bean
     public FanoutExchange candidatosFanoutExchange() {
         return new FanoutExchange("exchange-candidatos");
     }
@@ -87,6 +99,12 @@ public class RabbitConfig {
     public Binding candidatosWebSocketBinding() {
         return BindingBuilder.bind(filaWebSocketCandidatos())
                 .to(candidatosFanoutExchange());
+    }
+
+    @Bean
+    public Binding cidadesWebSocketBinding() {
+        return BindingBuilder.bind(filaWebSocketCidades())
+                .to(cidadesFanoutExchange());
     }
 
     @Bean

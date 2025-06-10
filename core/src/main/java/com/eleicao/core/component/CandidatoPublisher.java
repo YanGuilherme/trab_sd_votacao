@@ -20,7 +20,6 @@ public class CandidatoPublisher {
 
     public void publicarListaCandidatos() {
         List<CandidatoDTO> candidatos = candidatoService.listarPorQuantidadeVotosDesc();
-
         rabbitTemplate.convertAndSend("exchange-candidatos", "", candidatos);
     }
 }
