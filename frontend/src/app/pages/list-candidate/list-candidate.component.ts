@@ -15,7 +15,6 @@ export interface Candidato {
   quantidadeVotos: number;
 }
 
-
 @Component({
   selector: 'app-list-candidate',
   standalone: true,
@@ -77,9 +76,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     };
 
     this.stompClient.onStompError = (frame) => {
-      this.error = `Erro de conexão WebSocket: ${
-        frame.headers['message'] || 'Erro desconhecido'
-      }`;
+      this.error = `Erro de conexão WebSocket: ${frame.headers['message'] || 'Erro desconhecido'}`;
       this.isConnected = false;
       this.isConnecting = false;
     };
@@ -115,14 +112,6 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
       this.error = 'Erro ao buscar candidatos';
     }
   }
-
-  reconectar(): void {
-    this.desconectarWebSocket();
-    setTimeout(() => {
-      this.conectarWebSocket();
-    }, 1000);
-  }
-
 
   votar(candidato: Candidato): void {
     if (this.logout_no_token()) return;
