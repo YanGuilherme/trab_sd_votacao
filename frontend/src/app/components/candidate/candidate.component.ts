@@ -12,6 +12,7 @@ export class CandidateComponent implements OnInit {
   @Input() nome!: string;
   @Input() id!: number;
   @Input() quantidadeVotos!: number;
+  @Input() porcentagem!: number;
 
   animar = false;
 

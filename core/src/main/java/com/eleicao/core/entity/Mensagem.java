@@ -32,7 +32,7 @@ public class Mensagem {
                 ", type='" + type + '\'' +
                 ", object='" + object + '\'' +
                 ", valor=" + valor +
-                ", timestamp=" + dateTime +
+                ", datetime=" + dateTime +
                 '}';
     }
 }

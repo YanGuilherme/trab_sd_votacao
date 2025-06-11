@@ -5,5 +5,5 @@ export const apiCore = axios.create({
 });
 
 export const apiBase = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://localhost:8080', // por enquanto, fazer o front trocar
 });

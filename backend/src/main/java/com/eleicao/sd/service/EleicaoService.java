@@ -39,7 +39,7 @@ public class EleicaoService {
         voto.setType("eleicao-gp2");
         voto.setObject(id_candidato.toString()); //passando o id do candidato
         voto.setValor(1L);
-        voto.setDateTime(agora);
+        voto.setDatetime(agora);
 
         votoSender.enviarVoto(voto);
         logger.info("Voto para o candidato: {}", id_candidato.toString());

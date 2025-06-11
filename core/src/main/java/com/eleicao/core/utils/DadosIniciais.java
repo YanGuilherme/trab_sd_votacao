@@ -31,11 +31,11 @@ public class DadosIniciais implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("Criando a base de dados.");
         if (candidatoRepository.count() == 0) {
-            candidatoRepository.save(new Candidato("Pedro Damaso", 0L, lerImagem("/imagens/votacao/1.png")));
-            candidatoRepository.save(new Candidato("Romário", 0L, lerImagem("/imagens/votacao/2.png")));
-            candidatoRepository.save(new Candidato("Tirica", 0L, lerImagem("/imagens/votacao/3.png")));
-            candidatoRepository.save(new Candidato("Prefeito de Sorocaba-SP", 0L, lerImagem("/imagens/votacao/4.png")));
-            candidatoRepository.save(new Candidato("Pastor Mirim", 0L, lerImagem("/imagens/votacao/5.png")));
+            candidatoRepository.save(new Candidato("Pedro Damaso", 0L, lerImagem("/imagens/votacao/1.png"), BigDecimal.ZERO));
+            candidatoRepository.save(new Candidato("Romário", 0L, lerImagem("/imagens/votacao/2.png"), BigDecimal.ZERO));
+            candidatoRepository.save(new Candidato("Tirica", 0L, lerImagem("/imagens/votacao/3.png"), BigDecimal.ZERO));
+            candidatoRepository.save(new Candidato("Prefeito de Sorocaba-SP", 0L, lerImagem("/imagens/votacao/4.png"), BigDecimal.ZERO));
+            candidatoRepository.save(new Candidato("Pastor Mirim", 0L, lerImagem("/imagens/votacao/5.png"), BigDecimal.ZERO));
         }
 
         if(cidadeRepository.count() == 0){

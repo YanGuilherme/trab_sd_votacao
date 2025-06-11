@@ -10,6 +10,8 @@ services:
       RABBITMQ_DEFAULT_PASS: yan
     hostname: sd-rabbit
     restart: unless-stopped
+    networks:
+      - rede
 
   postgres_core:
     image: postgres:latest
@@ -23,6 +25,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_core_data:/var/lib/postgresql/data
+    networks:
+      - rede
 
   postgres_eleicao:
     image: postgres:latest
@@ -36,7 +40,13 @@ services:
     volumes:
       - postgres_eleicao_data:/var/lib/postgresql/data
     restart: unless-stopped
+    networks:
+      - rede
 
 volumes:
   postgres_core_data:
   postgres_eleicao_data:
+
+networks:
+  rede:
+    external: true

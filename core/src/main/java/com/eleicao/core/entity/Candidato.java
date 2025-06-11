@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Getter
@@ -25,10 +27,13 @@ public class Candidato {
     @Lob
     private byte[] foto;
 
-    public Candidato(String nome, Long quantidadeVotos, byte[] bytes) {
+    private BigDecimal porcentagem;
+
+    public Candidato(String nome, Long quantidadeVotos, byte[] bytes, BigDecimal porcentagem) {
         this.nome = nome;
         this.quantidadeVotos = quantidadeVotos;
         this.foto = bytes;
+        this.porcentagem = porcentagem;
     }
 
 

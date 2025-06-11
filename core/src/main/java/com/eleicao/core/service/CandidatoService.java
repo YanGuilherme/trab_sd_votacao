@@ -27,6 +27,7 @@ public class CandidatoService {
                     dto.setId(c.getId());
                     dto.setNome(c.getNome());
                     dto.setQuantidadeVotos(c.getQuantidadeVotos());
+                    dto.setPorcentagem(c.getPorcentagem());
                     return dto;
                 })
                 .collect(Collectors.toList());
