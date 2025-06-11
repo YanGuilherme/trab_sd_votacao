@@ -1,0 +1,12 @@
+docker network inspect rede
+
+
+docker images
+
+
+docker network ls
+
+
+docker network create <nome_da_rede>
+
+
