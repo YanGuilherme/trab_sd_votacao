@@ -45,4 +45,9 @@ public class UserController {
         }
         return ResponseEntity.status(401).build();
     }
+
+    @GetMapping("/healthCheck")
+    public ResponseEntity<String> healthCheck(){
+        return ResponseEntity.ok("Vivo");
+    }
 }

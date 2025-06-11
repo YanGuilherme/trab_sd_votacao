@@ -15,6 +15,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.List;
+
 
 @Service
 public class MensagemService {
@@ -29,6 +33,15 @@ public class MensagemService {
     private CidadeRepository cidadeRepository;
 
     private static final Logger logger = LogManager.getLogger(MensagemService.class);
+
+    private static Long quantidade_votos_total = null; // Cache da soma total
+
+    private synchronized void incrementarTotalVotos() {
+        if (quantidade_votos_total == null) {
+            quantidade_votos_total = candidatoRepository.sumAllVotes(); // método custom no repositório
+        }
+        quantidade_votos_total += 1;
+    }
 
 
 
@@ -52,7 +65,7 @@ public class MensagemService {
         mensagem.setDateTime(mensagemDTO.getDateTime());
     }
 
-    @Transactional //para grupo de votacao
+    @Transactional
     public void processarVoto(MensagemDTO mensagemDTO) {
         try {
             Long id = Long.parseLong(mensagemDTO.getObject());
@@ -61,16 +74,31 @@ public class MensagemService {
                     .orElseThrow(() -> new RuntimeException("Candidato não encontrado."));
 
             String nome_candidato = candidato.getNome();
-            Long votos = candidato.getQuantidadeVotos();
-            candidato.setQuantidadeVotos((votos == null ? 0 : votos) + 1);
-
             salvarVoto(mensagemDTO, nome_candidato);
+
+            Long votosAtuais = candidato.getQuantidadeVotos() == null ? 0 : candidato.getQuantidadeVotos();
+            candidato.setQuantidadeVotos(votosAtuais + 1);
             candidatoRepository.save(candidato);
+
+            incrementarTotalVotos();
+
+            List<Candidato> todosCandidatos = candidatoRepository.findAll();
+            for (Candidato c : todosCandidatos) {
+                Long qtdVotos = c.getQuantidadeVotos() == null ? 0 : c.getQuantidadeVotos();
+                BigDecimal novaPorcentagem = BigDecimal.valueOf(qtdVotos)
+                        .multiply(BigDecimal.valueOf(100))
+                        .divide(BigDecimal.valueOf(quantidade_votos_total), 2, RoundingMode.HALF_UP);
+
+                c.setPorcentagem(novaPorcentagem);
+            }
+
+            candidatoRepository.saveAll(todosCandidatos);
 
         } catch (NumberFormatException e) {
             throw new RuntimeException("ID do candidato inválido: deve ser um número.");
         }
     }
+
 
     @Transactional
     public void processarQualidadeAr(MensagemDTO mensagemDTO){

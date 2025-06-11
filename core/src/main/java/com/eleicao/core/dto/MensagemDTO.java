@@ -20,7 +20,7 @@ public class MensagemDTO {
                 "type='" + type + '\'' +
                 ", object='" + object + '\'' +
                 ", valor=" + valor +
-                ", timestamp=" + dateTime +
+                ", datetime=" + dateTime +
                 '}';
     }
 }

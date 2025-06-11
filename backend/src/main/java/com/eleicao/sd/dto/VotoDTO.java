@@ -11,7 +11,7 @@ public class VotoDTO {
     private String type;
     private String object;
     private Long valor;
-    private LocalDateTime dateTime;
+    private LocalDateTime datetime;
 
     @Override
     public String toString() {
@@ -19,7 +19,7 @@ public class VotoDTO {
                 "type='" + type + '\'' +
                 ", object='" + object + '\'' +
                 ", valor=" + valor +
-                ", timestamp=" + dateTime +
+                ", datetime=" + datetime +
                 '}';
     }
 }

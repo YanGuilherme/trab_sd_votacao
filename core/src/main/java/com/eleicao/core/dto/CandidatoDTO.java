@@ -2,6 +2,8 @@ package com.eleicao.core.dto;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,6 +15,8 @@ public class CandidatoDTO {
     private String nome;
 
     private Long quantidadeVotos;
+
+    private BigDecimal porcentagem;
 
 
     @Override
