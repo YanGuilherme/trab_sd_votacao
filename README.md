@@ -14,65 +14,89 @@ Além disso, o sistema utiliza **RabbitMQ** para comunicação entre os nós via
 - Microsserviços
 - Persistência distribuída (banco de dados separado para núcleo e eleições)
 - Interface moderna via Angular
+- Todos as partes do sistema configurados para docker
+- Réplicas do nó coletor utilizando o Nginx como proxy reverso para balancear a carga
+- Logs do sistema para auditoria
 
 ---
 
 ## 🚀 Como executar o projeto
 
-### 1. Clone o repositório
+Este projeto é um sistema distribuído que roda via Docker e Docker Compose. **É necessário estar em ambiente Linux** para seguir as instruções.
+
+---
+
+## Pré-requisitos ✅
+
+- Docker e Docker Compose instalados
+- Java 21 ou superior instalado
+
+---
+
+## Configuração inicial 🛠️
+
+1. **Adicionar host local**  
+   Edite o arquivo `/etc/hosts` e adicione a linha:
+
+   ```
+   127.0.1.1       coletor.local
+   ```
+
+2. **Criar rede Docker**  
+   Crie uma rede customizada no Docker chamada `rede` para comunicação entre containers:
+
+   ```bash
+   docker network create rede
+   ```
+
+3. **Build do backend e core**  
+   Entre nas pastas `core` e `backend` e execute o build do Java:
+
+   ```bash
+   ./mvnw clean package -DskipTests
+   ```
+
+---
+
+## Rodando o sistema 🚦
+
+1. Na raiz do projeto, rode o docker-compose para subir os containers principais:
+
+   ```bash
+   docker-compose up -d --build
+   ```
+
+2. Entre na pasta do core e do frontend e suba os containers:
+
+   ```bash
+   docker-compose up -d --build
+   ```
+
+3. Entre na pasta do backend para rodar as réplicas do coletor:
+
+   ```bash
+   docker-compose up --build --scale coletor=3 -d
+   ```
+
+---
+
+## Conferindo se está tudo certo ✅
+
+Use o comando:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+docker ps
 ```
 
-### 2. Suba os containers Docker
+## Explicação dos containers 🧩
 
-O projeto depende de três serviços: RabbitMQ, banco de dados do núcleo (`postgres_core`) e banco de dados da eleição (`postgres_eleicao`). Todos estão definidos em um único arquivo Docker Compose.
-
-```bash
-cd docker
-docker-compose up -d
-```
-
-Acesse o painel do RabbitMQ em: [http://localhost:15672](http://localhost:15672)  
-Login: `yan` / Senha: `yan`
-
-### 3. Inicie o backend e o core
-
-Você pode iniciar os dois serviços com:
-
-```bash
-# Terminal 1: Inicie o core (Agregador)
-cd core
-./mvnw spring-boot:run
-```
-
-```bash
-# Terminal 2: Inicie o backend (Coletor)
-cd backend
-./mvnw spring-boot:run
-```
-
-Certifique-se de que o Java 17+ está instalado. O Maven wrapper (`mvnw`) já está incluído.
-
-### 4. Inicie o frontend (Angular)
-
-Certifique-se de ter o Angular CLI instalado:
-
-```bash
-npm install -g @angular/cli
-```
-
-Em seguida:
-
-```bash
-cd frontend
-npm install
-ng serve
-```
-
-A aplicação estará disponível em: [http://localhost:4200](http://localhost:4200)
+- **frontend-frontend**: Aplicação frontend rodando na porta `4200`.
+- **core-agregador**: Serviço core agregador da aplicação, exposto na porta `8081`.
+- **backend-coletor (3 réplicas)**: Três instâncias do backend coletor em execução. O número 3 indica a escala feita para suportar alta disponibilidade e paralelismo.
+- **nginx_balanceador**: Nginx configurado como proxy reverso para balancear a carga dos coletores backend. Ele recebe as requisições no host `coletor.local` e na porta `8080` e as distribui entre as réplicas dos coletores, garantindo alta performance e tolerância a falhas.
+- **bd_sd_core**: Banco de dados PostgreSQL principal para o core, porta `5432`.
+- **postgres_eleicao**: Outro banco PostgreSQL utilizado para dados de eleição, porta `5433`.
+- **rabbitmq**: Broker de mensagens RabbitMQ, que gerencia a fila de mensagens da aplicação, exposto na porta `5672` para comunicação entre microserviços, e na porta `15672` para a interface de gerenciamento via web.
 
 ---
 
@@ -84,22 +108,15 @@ A aplicação estará disponível em: [http://localhost:4200](http://localhost:4
 - RabbitMQ
 - Docker
 - Maven
+- Nginx
 
 ---
 
-## 📁 Estrutura do Projeto
+## Dicas finais 💡
 
-```
-.
-├── backend/         -> Serviço coletor de votos
-├── core/            -> Serviço agregador de votos
-├── docker/          -> Contém o docker-compose com RabbitMQ e os dois bancos PostgreSQL
-├── frontend/        -> Interface Angular
-└── README.md
-```
+- Sempre use `docker-compose down` para parar os containers.
+- Use `docker logs <container_id>` para verificar logs de qualquer container.
 
----
+# Licença
 
-## 🧑‍💻 Contribuição
-
-Pull Requests são bem-vindas! Para mudanças maiores, por favor abra uma issue primeiro para discutir o que você gostaria de mudar.
+MIT © Yan Guilherme

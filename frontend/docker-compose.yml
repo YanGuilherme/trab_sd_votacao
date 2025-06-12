@@ -2,9 +2,9 @@ services:
   frontend:
     build: .
     ports:
-      - "4200:80"
+      - '4200:4200'
     networks:
-      - sistema
+      - rede
 
 networks:
-  sistema:
+  rede:
