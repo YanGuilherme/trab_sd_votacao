@@ -9,4 +9,7 @@ docker network ls
 
 docker network create <nome_da_rede>
 
+rodar com replicas: docker-compose up --build --scale coletor=3 -d
 
+
+/etc/hosts: 127.0.1.1       coletor.local

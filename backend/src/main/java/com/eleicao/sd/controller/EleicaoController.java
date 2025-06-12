@@ -18,11 +18,14 @@ public class EleicaoController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
     @Transactional
     @PostMapping("/votar/{id_candidato}")
     public ResponseEntity<String> votar(@RequestHeader("Authorization") String token, @PathVariable Long id_candidato) {
         try {
-            String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
+            String nick = jwtUtil.getNickFromToken(token.replace("Bearer ", ""));
             String resposta = eleicaoService.votar(nick, id_candidato);
             return ResponseEntity.ok(resposta);
 

@@ -51,7 +51,7 @@ public class MensagemService {
         mensagem.setType(mensagemDTO.getType());
         mensagem.setValor(mensagemDTO.getValor());
         mensagem.setObject(nome_candidato);
-        mensagem.setDateTime(mensagemDTO.getDateTime());
+        mensagem.setDatetime(mensagemDTO.getDatetime());
         logger.info("Voto salvo: {}", mensagem.toString());
         mensagemRepository.save(mensagem);
     }
@@ -62,7 +62,7 @@ public class MensagemService {
         mensagem.setType(mensagemDTO.getType());
         mensagem.setObject(mensagemDTO.getObject());
         mensagem.setValor(mensagemDTO.getValor());
-        mensagem.setDateTime(mensagemDTO.getDateTime());
+        mensagem.setDatetime(mensagemDTO.getDatetime());
     }
 
     @Transactional

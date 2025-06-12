@@ -12,7 +12,7 @@ public class MensagemDTO {
     private String type;
     private String object;
     private Long valor;
-    private LocalDateTime dateTime;
+    private LocalDateTime datetime;
 
     @Override
     public String toString() {
@@ -20,7 +20,7 @@ public class MensagemDTO {
                 "type='" + type + '\'' +
                 ", object='" + object + '\'' +
                 ", valor=" + valor +
-                ", datetime=" + dateTime +
+                ", datetime=" + datetime +
                 '}';
     }
 }

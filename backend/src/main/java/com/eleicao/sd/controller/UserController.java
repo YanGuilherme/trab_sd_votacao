@@ -17,10 +17,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
     @PostMapping("/token")
     public ResponseEntity<String> gerarToken(@RequestBody UsuarioDTO user) {
         if (userService.verificarSenha(user.getNick(), user.getSenha())) {
-            String token = JwtUtil.generateToken(user.getNick());
+            String token = jwtUtil.generateToken(user.getNick());
             return ResponseEntity.ok(token);
         }
         return ResponseEntity.status(401).body("Credenciais inválidas.");
@@ -30,7 +33,7 @@ public class UserController {
     public ResponseEntity<?> criarUser(@RequestBody UsuarioDTO user) {
         try {
             Usuario usuarioCriado = userService.createUser(user);
-            String token = JwtUtil.generateToken(user.getNick());
+            String token = jwtUtil.generateToken(user.getNick());
             return ResponseEntity.status(201).body(token);
         } catch (RuntimeException e) {
                 return ResponseEntity.status(400).body(e.getMessage());
@@ -38,7 +41,7 @@ public class UserController {
     }
     @GetMapping
     public ResponseEntity<List<Usuario>> listarUsers(@RequestHeader("Authorization") String token){
-        String nick = JwtUtil.getNickFromToken(token.replace("Bearer ", ""));
+        String nick = jwtUtil.getNickFromToken(token.replace("Bearer ", ""));
         if(nick.equals("yan")){
             List<Usuario> list = userService.buscarUsers();
             return ResponseEntity.ok(list);

@@ -29,9 +29,7 @@ public class EleicaoService {
             logger.error("Erro ao votar - User nao encontrado: {}", nick);
             throw new RuntimeException("Usuário não encontrado");
         }
-
-
-        logger.info("Candidato encontrado - id: {}", id_candidato);
+        logger.info("Usuário encontrado: {} - Processando voto.", nick);
 
         LocalDateTime agora = LocalDateTime.now();
 
@@ -42,7 +40,6 @@ public class EleicaoService {
         voto.setDatetime(agora);
 
         votoSender.enviarVoto(voto);
-        logger.info("Voto para o candidato: {}", id_candidato.toString());
         return "Votou em " + id_candidato.toString();
     }
 }
