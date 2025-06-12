@@ -49,13 +49,6 @@ Este projeto é um sistema distribuído que roda via Docker e Docker Compose. **
    docker network create rede
    ```
 
-3. **Build do backend e core**  
-   Entre nas pastas `core` e `backend` e execute o build do Java:
-
-   ```bash
-   ./mvnw clean package -DskipTests
-   ```
-
 ---
 
 ## Rodando o sistema 🚦
@@ -65,14 +58,20 @@ Este projeto é um sistema distribuído que roda via Docker e Docker Compose. **
    ```bash
    docker-compose up -d --build
    ```
+   
+2. Entre nas pastas `core` e `backend` e execute o build do Java:
 
-2. Entre na pasta do core e do frontend e suba os containers:
+   ```bash
+   ./mvnw clean package -DskipTests
+   ```
+
+3. Entre na pasta do `core` e do `frontend` e suba os containers:
 
    ```bash
    docker-compose up -d --build
    ```
 
-3. Entre na pasta do backend para rodar as réplicas do coletor:
+4. Entre na pasta do `backend` para rodar as réplicas do coletor:
 
    ```bash
    docker-compose up --build --scale coletor=3 -d
