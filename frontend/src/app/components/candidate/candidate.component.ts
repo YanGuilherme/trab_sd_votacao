@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CandidateComponent implements OnInit {
   @Input() nome!: string;
-  @Input() id!: number;
+  @Input() id!: number | string;
   @Input() quantidadeVotos!: number;
   @Input() porcentagem!: number;
 

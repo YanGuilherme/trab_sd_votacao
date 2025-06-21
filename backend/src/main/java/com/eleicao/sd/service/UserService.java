@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -53,8 +54,11 @@ public class UserService {
         return passwordEncoder.matches(senha, user.getSenha());
     }
 
-    public List<Usuario> buscarUsers() {
-        return usuarioRepository.findAll();
+    public List<String> buscarUsers() {
+        return usuarioRepository.findAll()
+                .stream()
+                .map(Usuario::getNick) // ou .map(u -> u.getNick())
+                .collect(Collectors.toList());
     }
 
 

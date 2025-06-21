@@ -1,6 +1,6 @@
 .lista-candidatos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -44,7 +44,7 @@ h2 {
 
 @media (max-width: 768px) {
   .lista-candidatos {
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   .ver-resultados {
@@ -80,10 +80,11 @@ h2 {
 
 .card {
   border-radius: 6px;
-  background-color: #e3e3e3;
+  background-color: #555555;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
   text-align: center;
+
+  padding-top: 1rm;
 }
 
 .mensagem-erro {

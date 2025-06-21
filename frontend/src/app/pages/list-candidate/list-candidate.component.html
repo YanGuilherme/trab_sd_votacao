@@ -1,3 +1,5 @@
+<app-users></app-users>
+
 <div class="container">
   <div class="top-bar">
     <h2>Bem-vindo</h2>
@@ -28,8 +30,8 @@
         <app-candidate
           [id]="candidato.id"
           [nome]="candidato.nome"
-          [quantidadeVotos]="candidato.quantidadeVotos"
-          [porcentagem]="candidato.porcentagem"
+          [quantidadeVotos]="candidato.contagem ?? 0"
+          [porcentagem]="candidato.porcentagem ?? 0"
         />
         <button class="votar" (click)="votar(candidato)">Votar</button>
       </div>

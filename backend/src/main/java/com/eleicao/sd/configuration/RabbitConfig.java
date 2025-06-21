@@ -10,7 +10,7 @@ import org.springframework.amqp.core.Queue;
 
 @Configuration
 public class RabbitConfig {
-    public static final String FILA_VOTOS = "fila-votos";
+    public static final String FILA_VOTOS = "lotes_de_dados";
 
     @Bean
     public Queue filaVotos() {

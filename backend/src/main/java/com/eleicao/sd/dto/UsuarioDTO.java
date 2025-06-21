@@ -10,9 +10,10 @@ import lombok.*;
 
 public class UsuarioDTO {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    String id;
+    private String id;
 
-    String nick;
+    private String nick;
+
     private String senha;
 
 }

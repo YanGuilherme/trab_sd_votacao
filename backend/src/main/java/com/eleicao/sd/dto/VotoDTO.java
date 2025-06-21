@@ -9,17 +9,17 @@ import lombok.*;
 @NoArgsConstructor
 public class VotoDTO {
     private String type;
-    private String object;
+    private String objectIdentifier;
     private Long valor;
-    private LocalDateTime datetime;
+    private LocalDateTime eventDatetime;
 
     @Override
     public String toString() {
         return "VotoDTO{" +
                 "type='" + type + '\'' +
-                ", object='" + object + '\'' +
+                ", object='" + objectIdentifier + '\'' +
                 ", valor=" + valor +
-                ", datetime=" + datetime +
+                ", datetime=" + eventDatetime +
                 '}';
     }
 }

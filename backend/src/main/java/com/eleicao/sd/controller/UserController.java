@@ -40,10 +40,10 @@ public class UserController {
         }
     }
     @GetMapping
-    public ResponseEntity<List<Usuario>> listarUsers(@RequestHeader("Authorization") String token){
+    public ResponseEntity<List<String>> listarUsers(@RequestHeader("Authorization") String token){
         String nick = jwtUtil.getNickFromToken(token.replace("Bearer ", ""));
-        if(nick.equals("yan")){
-            List<Usuario> list = userService.buscarUsers();
+        if(nick != null && !nick.isEmpty()){
+            List<String> list = userService.buscarUsers();
             return ResponseEntity.ok(list);
         }
         return ResponseEntity.status(401).build();

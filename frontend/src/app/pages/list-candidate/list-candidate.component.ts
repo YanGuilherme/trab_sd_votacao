@@ -2,24 +2,28 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CandidateComponent } from '../../components/candidate/candidate.component';
 import { FormsModule } from '@angular/forms';
-import { apiBase, apiCore } from '../../service/api';
+import { apiBase, apiCore, apiProd } from '../../service/api';
 import SockJS from 'sockjs-client';
 import { Client, Message } from '@stomp/stompjs';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { isTokenValid } from '../../utils/auth.utils';
+import { UsersComponent } from '../../components/users/users.component';
 
-export interface Candidato {
-  id: number;
+interface Candidato {
+  id: string;
   nome: string;
-  quantidadeVotos: number;
-  porcentagem: number;
+  media?: number;
+  mediana?: number;
+  somatorio?: number;
+  contagem?: number;
+  porcentagem?: number;
 }
 
 @Component({
   selector: 'app-list-candidate',
   standalone: true,
-  imports: [CommonModule, CandidateComponent, FormsModule],
+  imports: [CommonModule, CandidateComponent, FormsModule, UsersComponent],
   templateUrl: './list-candidate.component.html',
   styleUrls: ['./list-candidate.component.css'],
 })
@@ -37,7 +41,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router) {
     this.stompClient = new Client({
-      webSocketFactory: () => new SockJS('http://192.168.3.4:8081/ws'),
+      webSocketFactory: () => new SockJS('https://agregador-node.onrender.com/ws'),
       reconnectDelay: 5000,
       heartbeatIncoming: 4000,
       heartbeatOutgoing: 4000,
@@ -46,7 +50,7 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.conectarWebSocket();
-    this.carregarCandidatosIniciais();
+    this.carregarTudo();
   }
 
   ngOnDestroy(): void {
@@ -60,17 +64,23 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
 
     this.isConnecting = true;
 
-    // Configurar callbacks antes de ativar
     this.stompClient.onConnect = () => {
       this.hit = 'Conectado ao WebSocket';
       this.isConnected = true;
       this.isConnecting = false;
       this.error = null;
 
-      this.stompClient.subscribe('/topic/candidatos', (message: Message) => {
+      this.stompClient.subscribe('/topic/aggregated', (message: Message) => {
         try {
-          this.candidatos = JSON.parse(message.body);
+          const payload = JSON.parse(message.body);
+          const dadosAgregados = payload.dadosAgregados;
+
+          this.candidatos = this.relacionarDadosAgregadosComCandidatos(
+            this.candidatos,
+            dadosAgregados
+          );
         } catch (error) {
+          console.error('Erro ao processar mensagem WebSocket:', error);
           this.error = 'Erro ao processar dados recebidos';
         }
       });
@@ -104,14 +114,59 @@ export class ListCandidateComponent implements OnInit, OnDestroy {
     this.isConnecting = false;
   }
 
-  async carregarCandidatosIniciais(): Promise<void> {
+  async carregarTudo(): Promise<void> {
     try {
-      const response = await apiCore.get('/eleicao-gp2/listarCandidatosDesc');
-      this.candidatos = Array.isArray(response.data) ? response.data : [];
+      const candidatos = await this.carregarCandidatos();
+      const dadosAgregados = await this.carregarDadosAgregados();
+
+      this.candidatos = this.relacionarDadosAgregadosComCandidatos(
+        candidatos,
+        dadosAgregados,
+        'eleicao-gp2'
+      );
     } catch (error) {
+      console.error('Erro ao carregar dados:', error);
       this.candidatos = [];
-      this.error = 'Erro ao buscar candidatos';
+      this.error = 'Erro ao carregar dados';
     }
+  }
+
+  async carregarCandidatos(): Promise<Candidato[]> {
+    const response = await apiBase.get('/candidatos');
+    return Array.isArray(response.data) ? response.data : [];
+  }
+
+  async carregarDadosAgregados(): Promise<any[]> {
+    const response = await apiProd.get('/api/aggregator/results');
+    console.log(response.data.dadosAgregados);
+    return response.data.dadosAgregados;
+  }
+
+  relacionarDadosAgregadosComCandidatos(
+    candidatos: Candidato[],
+    dadosAgregados: any[],
+    tipo: string = 'eleicao-gp2'
+  ): Candidato[] {
+    const dadosFiltrados = dadosAgregados.find((dado) => dado.type === tipo);
+
+    if (!dadosFiltrados || !Array.isArray(dadosFiltrados.lista)) {
+      return candidatos; // Nenhum dado para processar
+    }
+
+    for (const dado of dadosFiltrados.lista) {
+      const candidato = candidatos.find((c) => String(c.id) === String(dado.objectIdentifier));
+      if (candidato) {
+        Object.assign(candidato, {
+          media: dado.media,
+          mediana: dado.mediana,
+          somatorio: dado.somatorio,
+          contagem: dado.contagem,
+          porcentagem: dado.porcentagem,
+        });
+      }
+    }
+
+    return candidatos;
   }
 
   votar(candidato: Candidato): void {
